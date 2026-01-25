@@ -1,0 +1,183 @@
+.home-container {
+    background-color: rgb(20, 25, 32);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    margin-bottom: 15vh;
+    cursor: default;
+    font-family: "Cascadia Code";
+    -webkit-user-select: none; /* Safari */
+    user-select: none;         /* Standard */
+    min-height: 100vh;
+}
+
+.home-content {
+    display: flex;
+    align-items: center;        /* vertically center items */
+    justify-content: center;    /* center the whole content */
+    gap: 20vw;                  /* space between sections */
+    min-height: 80vh;          /* full screen height */
+    padding: 20px;
+    color: white;
+    min-width: 25vw;
+    padding-top: 23vh;
+}
+
+.left-section {
+    max-width: 50%;
+    min-width: inherit;
+    border-color: beige;
+    border: rgb(45, 57, 73) outset 1px;
+    border-radius: 20px;
+    padding-left: 2vw;
+    padding-right: 2.5vw;
+    padding-bottom: 4vh;
+    padding-top: 4vh;
+    width: 30vw;
+}
+
+@media (max-width: 768px) {
+    .left-section {
+        max-width: 100%;
+        font-size: 1em;
+        width: 74vw;
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+        text-align: left;
+
+        .heading{
+            font-size: 3.5em;
+        }
+
+        h3{
+            font-size: 2em;
+        }
+
+        .description{
+            font-size: 1.25em;
+        }
+
+        .designation h1 a{
+            font-size: 1em;
+        }
+
+        button{
+            padding: 1.25em;
+            font-size: 1.15em;
+        }
+    }
+
+    .right-section {
+        max-width: 100%;
+        padding-left: 0;
+        margin-left: 0;
+        display: contents;
+
+        .profile-picture {
+            width: 55vw;
+            height: 40vh;
+            padding-left: 0;
+            margin-left: 0;
+            top: -100vh;
+        }
+    }
+
+    .home-container{
+        margin-bottom: 35vh;
+    }
+
+    .home-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        min-height: 160vh;
+        min-width: 20vw;
+        padding-top: 0;
+    }
+}
+
+.right-section {
+    max-width: 50%;
+    min-width: inherit;
+}
+
+.profile-picture {
+    width: 275px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.designation h1 {
+    font-family: "hooge 05_54";
+    font-size: 1.5em;
+
+}
+.designation h1 a {
+    text-decoration: none;
+    color: #fff;
+    cursor: default;
+    font-size: 1.4em;
+    padding-bottom: 0.5em;
+}
+
+.wrap {
+  border-right: 2px solid #000;
+  padding-right: 4px;
+}
+
+.wrap::after {
+  content: '';
+  animation: none;
+}
+
+h3{
+    font-size: 2.5em;
+    margin-bottom: 0.2em;
+}
+
+.heading {
+    font-size: 5em;
+    margin-bottom: 0.2em;
+}
+
+.description {
+    font-size: 1.75em;
+    color: #bbbbbb;
+    margin-bottom: 1.5em;
+}
+
+.profile-picture{
+    border: #2dd4bf solid 10px;
+    width: 18vw;
+    height: 18vw;
+}
+
+.profile-picture:hover {
+    transform: scale(1.10);
+    transition: transform 0.2s;
+    border: 8px #2dd4bf solid;
+}
+
+.download-resume {
+    margin-right: 2vw;
+    background-color: #2dd4bf;
+    color: black !important;
+}
+
+button {
+    border-radius: 30px;
+    padding: 2.75vh 1.5vw 2.75vh 1.5vw;
+    font-family: "Cascadia Code";
+    font-size: 2vh;
+}
+button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.resume-contact {
+    margin-top: 3vh;
+}
+
+.mat-mdc-outlined-button:not(:disabled) {
+    color: #2dd4bf;
+}

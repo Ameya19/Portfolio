@@ -1,0 +1,101 @@
+.skills-section{
+    color: White;
+    -webkit-user-select: none; /* Safari */
+    user-select: none;         /* Standard */
+    /*text-align: center;*/
+    font-family: "Cascadia Code", monospace;
+    height: auto;
+    min-height: 80vh;
+    margin-left: 13vw;
+    margin-right: 13vw;
+    margin-bottom: 13vh;
+    padding-top: 90px;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.248);
+    margin-bottom: 15vh;
+}
+
+.section-heading {
+    font-size: 7em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: "Cascadia Code", monospace;
+    position: relative;
+}
+.skills-container {
+    display: block;
+    justify-content: center;
+    width: 73%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.mat-mdc-fab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(24, 30, 39);
+    color: white;
+    font-family: "Cascadia Code", monospace;
+    border-radius: 15px;
+    padding: 8vh;
+    border: rgba(128, 128, 128, 0.318) solid 2px;
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+.skills button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.jira-fab {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 18px rgba(51, 238, 213, 0.45) !important;
+}
+
+.jira-fab:hover {
+  box-shadow: 0 12px 30px rgba(45, 212, 191, 0.7) !important;
+  transform: translateY(-2px);
+}
+
+.jira-fab.mat-mdc-fab::before {
+  box-shadow: 0 10px 30px rgba(45, 212, 191, 0.6) !important;
+}
+
+.skills button.mat-mdc-fab {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.skills button.mat-mdc-fab:hover {
+  transform: scale(1.00);
+  box-shadow: 0 14px 40px rgba(45, 212, 191, 0.75) !important;
+  border-color: #2dd4bf;
+}
+
+@media (max-width:768px) {
+  .skills-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .section-heading {
+    font-size: 4em;
+  }
+}

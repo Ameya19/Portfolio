@@ -1,0 +1,107 @@
+<div class="education-section" #educationSection>
+    <h2 class="section-heading">Education</h2>
+    <hr class="horizontal-line" />
+    <div class="education-block">
+        <app-toggle (educationToggled)="toggleValue($event)"></app-toggle>
+        <div class="content-box" 
+            [class.show-skills]="activeView === 'certifications'">
+            <div
+                class="content-wrapper"
+                [class.show-skills]="activeView === 'certifications'"
+            >
+                <section class="panel">
+                    <div class="education-section-content">
+                        <div class="heading-block" style="text-align: center; margin-bottom: 2rem;">
+                            <h2 style="color: #2dd4bf; font-weight: bold; font-size: 45px; font-weight: uppercase;">DEGREE RECEIVED</h2>
+                        </div>
+                        <hr/>
+                        <div style="align-items: center; justify-content: center; display: flex;">
+                            <img src="assets/images/stes-logo.png" alt="Sinhgad College of Engineering Logo" style="width: 150px; height: auto; display: block; margin-bottom: 1rem;" />
+                        </div>
+                        <div class="college-name">
+                            <h2>Sinhgad College of Engineering</h2>
+                        </div>
+                        <div>
+                            <h4>Bachelors in Computer Science and Engineering</h4>
+                        </div>
+                        <div style="color: gray;">
+                            <p>Pune, Maharashtra(2017-2021)</p>
+                        </div>
+                        <ul>
+                            <li>Graduated with a Bachelor’s degree, achieving a CGPA of 8.27.</li>
+                            <li>Studied Data Structures and Algorithms, Object Oriented Programming, Computer Organization and Architecture, Database management systems. </li>
+                            <li>Also Studied Artificial Intelligence and Machine Learning, Database Management System.</li>
+                            <div style="align-items: center; justify-content: center; display: flex; margin-top: 1rem;">
+                                <button style="background-color: #2dd4bf; border: none; padding: 0.5rem 1rem; border-radius: 5px;">
+                                    <a href="assets/documents/education/SCET_Transcript.pdf" target="_blank" style="text-decoration: none; color: black; font-weight: bold; font-size: 18px;">View Transcript</a>
+                                </button>
+                            </div>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="panel" style="width: fit-content; padding-left: 4.5vw;">
+                    <div style="border-color: beige; border: rgb(45, 57, 73) outset 1px; border-radius: 20px; padding: 2rem;">
+                        <div style="text-align: center; margin-bottom: 2rem;">
+                            <h2 style="color: #2dd4bf; font-weight: bold; font-size: 45px; font-weight: uppercase;">CERTIFICATIONS</h2>
+                        </div>
+                        <hr/>
+                        <div style="color: gray; font-size: 18px;">
+                            <p>I actively participate in various certification programs to enhance my skills and knowledge in the field of technology. <br/>Here are some of the certifications I have earned:</p>
+                        </div>
+                        <div class="certification-cards">
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/images/udemy.png" class="card-img-top" alt="Udemy Certification">
+                                <div class="card-body">
+                                    <h5 class="card-title">ANGULAR and ASP.NET Core REST API - Real World Application</h5>
+                                    <p class="card-text">2025</p>
+                                    <a href="https://www.udemy.com/certificate/UC-25984c02-c459-4071-8687-bc986b5c7e41/" class="btn btn-primary">Certificate URL</a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/images/google.png" class="card-img-top" alt="Google Certification">
+                                <div class="card-body">
+                                    <h5 class="card-title">Introduction to Generative AI</h5>
+                                    <p class="card-text">2025</p>
+                                    <div>
+                                        <a href="https://www.cloudskillsboost.google/public_profiles/4e306d08-54f7-4a32-bfa2-d80d182d7c2f/badges/14429554?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" class="btn btn-primary">Certificate URL</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/images/udemy.png" class="card-img-top" alt="Udemy Certification">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Python Mega Course: Build 10 Real World Applications</h5>
+                                    <p class="card-text">2020</p>
+                                    <a href="https://drive.google.com/file/d/1FZATYDhAJeQGcWHF98U8wDhAQzzE_qw9/view?usp=sharing" class="btn btn-primary">Certificate URL</a>
+                                </div>
+                            </div>
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/images/coursera.png" class="card-img-top"alt="Coursera Certification">
+                                <div class="card-body">
+                                    <h5 class="card-title">Neural Networks and Deep Learning</h5>
+                                    <p class="card-text">2020</p>
+                                    <a href="https://www.coursera.org/verify/FXEQRLACGAJZ" class="btn btn-primary">Certificate URL</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-cards">
+                            <div class="card" style="width: 18rem;">
+                                <img src="assets/images/coursera.png" class="card-img-top" alt="Coursera Certification">
+                                <div class="card-body">
+                                    <h5 class="card-title">Machine Learning for All</h5>
+                                    <p class="card-text">2020</p>
+                                    <a href="https://www.coursera.org/verify/8NFM66BHWKC8" class="btn btn-primary">Certificate URL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

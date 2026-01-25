@@ -1,0 +1,255 @@
+/* ==============================
+   EDUCATION SECTION
+================================ */
+
+.education-section {
+  padding: 4rem 2rem;
+  color: white;
+  min-height: 80vh;
+  margin-left: 13vw;
+  margin-right: 13vw;
+  margin-bottom: 3vh;
+  padding-top: 90px;
+  -webkit-user-select: none; /* Safari */
+  user-select: none;         /* Standard */
+  font-family: "Cascadia Code", monospace;
+}
+
+.section-heading {
+    display: block;
+    font-size: 7em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+    position: relative;
+    color: white;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-left: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.248);
+    margin-bottom: 15vh;
+    margin-bottom: 3em;
+}
+
+
+/* ==============================
+   EDUCATION BLOCK
+================================ */
+
+.education-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.college-name h2 {
+    color: #2dd4bf;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+
+/* ==============================
+   CONTENT BOX (viewport)
+================================ */
+
+.content-box {
+  width: 100%;
+  overflow: hidden; /* IMPORTANT: prevents overflow */
+  margin-top: 1.5rem;
+}
+
+h2{
+    color: #2dd4bf;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: "Cascadia Code";
+}
+
+
+/* ==============================
+   SLIDING WRAPPER
+================================ */
+
+.content-wrapper {
+  display: flex;
+  width: 200%;
+  transition: transform 450ms ease-in-out;
+}
+
+
+/* Slide to Certifications */
+.content-wrapper.show-skills {
+  transform: translateX(-50%);
+}
+
+
+/* ==============================
+   PANELS
+================================ */
+
+.panel {
+  width: 50%;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+}
+
+
+/* ==============================
+   VISIBILITY CONTROL
+   (NO position:absolute ❌)
+================================ */
+
+/* Hide Education when Certifications is active */
+.content-wrapper.show-skills .panel:first-child {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hide Certifications when Education is active */
+.content-wrapper:not(.show-skills) .panel:last-child {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Ensure active panel is visible */
+.content-wrapper.show-skills .panel:last-child,
+.content-wrapper:not(.show-skills) .panel:first-child {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* ==============================
+   EDUCATION LIST
+================================ */
+
+.panel ul {
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.panel li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.education-section-content{
+  margin-left: 14vw; 
+  padding: 2rem; 
+  width: fit-content; 
+  margin-right: 14vw;
+  border-color: beige; 
+  border: rgb(45, 57, 73) outset 1px; 
+  border-radius: 20px;
+}
+
+
+/* ==============================
+   CERTIFICATION CARDS
+================================ */
+
+.certification-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: white;
+}
+
+img {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #2dd4bf;
+  padding: 20px;
+}
+
+.card {
+  box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgb(20, 25, 32);
+  padding: 1.5em;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35);
+  border-color: #2dd4bf;
+}
+
+.card-text{
+  color: gray;
+}
+
+.btn.btn-primary {
+  background-color: #2dd4bf;
+  border: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* ==============================
+   RESPONSIVE FIXES
+================================ */
+
+@media (max-width: 1024px) {
+  .panel {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .panel {
+    width: 100%;
+  }
+
+  /* On mobile, just show active panel */
+  .content-wrapper.show-skills .panel:first-child,
+  .content-wrapper:not(.show-skills) .panel:last-child {
+    display: none;
+  }
+
+  .section-heading {
+    font-size: 4em;
+  }
+
+  .education-section {
+    margin-left: 0vw;
+    margin-right: 0vw;
+    margin-bottom: 10vh;
+  }
+
+  .education-block{
+    margin: 0 ;
+  }
+
+  .education-section-content{
+    margin-left: 2vw; 
+    padding: 2rem; 
+    width: fit-content; 
+    margin-right: 2vw;
+  }
+
+  .certification-cards{
+    justify-content: center;
+  }
+}

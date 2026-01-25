@@ -1,0 +1,46 @@
+<div class="home-container" #HomeSection>
+    <app-titlebar></app-titlebar>
+    <div class="home-content">
+        <div class="left-section">
+            <h3>Hello world.</h3>
+            <h2 class="heading">I am <span style="color: #2dd4bf;">Ameya</span>.</h2>
+            <p class="description">Code. Design. Deploy. Repeat.</p>
+            <div class="designation">
+                <h1>
+                    <a href="" class="typewrite" data-period="2000" data-type='["Full-Stack Developer","Backend Developer","Software Developer"]'>
+                        <span class="wrap" #textSpan></span>
+                    </a>
+                </h1>
+            </div>
+            <div class="resume-contact">
+                <button mat-button extended (click) = "downloadResume()" class="download-resume">Download Resume</button>
+                <button mat-stroked-button extended class="contact-me" (click) ="onContactClick()">
+                    Contact
+                </button>
+            </div>
+        </div>
+        <div class="right-section">
+            <img src="/assets/images/photo.jpeg" alt="Profile Picture" class="profile-picture">
+        </div>
+    </div>
+</div>
+
+<section id="skills">
+<app-about></app-about>
+</section>
+
+<section id="experience">
+<app-experience></app-experience>
+</section>
+
+<section id="education">
+<app-education></app-education>
+</section>
+
+<section id="projects">
+<app-projects></app-projects>
+</section>
+
+<section id="contact">
+<app-contact></app-contact>
+</section>

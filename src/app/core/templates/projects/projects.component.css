@@ -1,0 +1,117 @@
+.projects-section{
+    color: White;
+    -webkit-user-select: none; /* Safari */
+    user-select: none;         /* Standard */
+    /*text-align: center;*/
+    font-family: "Cascadia Code", monospace;
+    height: auto;
+    min-height: 80vh;
+    margin-left: 13vw;
+    margin-right: 13vw;
+    margin-bottom: 13vh;
+    padding-top: 90px;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.248);
+    margin-bottom: 15vh;
+}
+
+.section-heading {
+    font-size: 7em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: "Cascadia Code", monospace;
+    position: relative;
+}
+.projects-container {
+    display: block;
+    justify-content: center;
+    width: 73%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.card{
+  box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgb(20, 25, 32);
+  padding: 1.5em;
+  color: white;
+  width: 40vh;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #2dd4bf;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35);
+  border-color: #2dd4bf;
+}
+
+.project-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-git-projects-heading{
+  font-size: 8em; 
+  color: white;
+}
+
+.more-git-projects-subheading{
+  color: black; 
+  font-family: sans-serif;
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  .section-heading {
+    font-size: 4em;
+  }
+
+  .more-git-projects-heading{
+    font-size: 3em;
+  }
+
+  .more-git-projects-subheading{
+    font-weight: 550;
+  }
+
+  .more-git-projects{
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.2)), url('../../../../assets/images/github-background.jpg'); 
+  }
+
+}
+
+.more-git-projects {
+    text-align: center;
+    margin-top: 10em;
+    padding-top: 15em;
+    padding-bottom: 15em;
+    font: san-serif;
+    margin-bottom: 10em;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.5)), url('../../../../assets/images/github-background.jpg'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+.button-block {
+    margin-top: 2em;
+}

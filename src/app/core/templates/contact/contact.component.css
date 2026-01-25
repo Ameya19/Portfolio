@@ -1,0 +1,80 @@
+.contactSection {
+    background-color: #2dd4bf;
+    padding-top: 5em;
+    display: flex;
+    font-family: "Cascadia Code", monospace;
+    padding-bottom: 10em;
+}
+
+.section-heading {
+    color: black;
+    margin-left: 8vw;
+    font-weight: bold;
+}
+
+.section-heading1{
+    font-size: 2.2em;
+}
+
+.section-heading2{
+    font-size: 6.5em;
+    text-transform: uppercase;
+}
+
+.section-heading2:hover{
+    color: white;
+}
+
+.section2{
+    margin-left: 10vw;
+}
+
+.sitemaps{
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(61, 61, 61);
+}
+
+.page-tabs{
+    color: black;
+    font-size: 1.1em;
+    padding-bottom: 0.3em;
+}
+
+.page-tabs:hover{
+    color: white;
+}
+
+.plain-text{
+    color: black;
+    font-size: 1.1em;
+    padding-bottom: 0.3em;
+}
+
+a{
+    text-decoration: None;
+}
+
+@media (max-width: 768px) {
+    .contactSection{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-heading{
+        padding-bottom: 2em;
+    }
+
+    .section-heading1{
+        font-size: 1.5em;
+    }
+
+    .section-heading2{
+        font-size: 4em;
+    }
+
+    .section2{
+        padding-bottom: 2.5em;
+    }
+}

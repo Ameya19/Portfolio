@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: rgb(20, 25, 32) !important;
+    -webkit-user-select: none; /* Safari */
+    user-select: none;         /* Standard */
+}
+html, body { height: 100%; }
+
+.jira-fab.mat-mdc-fab {
+  box-shadow: 0 10px 30px rgba(45, 212, 191, 0.6) !important;
+}
