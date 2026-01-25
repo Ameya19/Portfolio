@@ -36,7 +36,7 @@
     width: 30vw;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .left-section {
         max-width: 100%;
         font-size: 1em;
@@ -46,24 +46,24 @@
         text-align: left;
 
         .heading{
-            font-size: 3.5em;
-        }
-
-        h3{
             font-size: 2em;
         }
 
+        h3{
+            font-size: 1.2em;
+        }
+
         .description{
-            font-size: 1.25em;
+            font-size: 0.7em;
         }
 
         .designation h1 a{
-            font-size: 1em;
+            font-size: 0.52em;
         }
 
         button{
-            padding: 1.25em;
-            font-size: 1.15em;
+            padding: 0.7em;
+            font-size: 0.7em;
         }
     }
 
@@ -109,7 +109,7 @@
 .designation h1 {
     font-family: "hooge 05_54";
     font-size: 1.5em;
-
+    text-transform: uppercase;
 }
 .designation h1 a {
     text-decoration: none;

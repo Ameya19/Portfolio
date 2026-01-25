@@ -56,7 +56,7 @@ a{
     text-decoration: None;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .contactSection{
         display: flex;
         flex-direction: column;

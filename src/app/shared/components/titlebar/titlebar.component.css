@@ -18,9 +18,9 @@ a {
     font-weight: bold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .navbar-brand{
-        font-size: 30px;
+        font-size: 22px;
     }
     
 }

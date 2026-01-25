@@ -11,7 +11,7 @@ html, body { height: 100%; }
 }
 
 
-@font-face {
+/* @font-face {
     font-family: 'Cascadia Code';
     src: url('assets/fonts/Cascadia/Cascadia.ttf') format('truetype');
     font-weight: normal;
@@ -23,4 +23,4 @@ html, body { height: 100%; }
     src: url('assets/fonts/Hoog/hoog0554.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}
+} */

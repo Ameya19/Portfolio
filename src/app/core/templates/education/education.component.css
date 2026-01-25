@@ -20,7 +20,7 @@
     font-size: 7em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    font-family: sans-serif;
+    font-family: "Cascadia Code", monospace;
     position: relative;
     color: white;
 }
@@ -211,7 +211,7 @@ img {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .content-wrapper {
     flex-direction: column;
     width: 100%;
