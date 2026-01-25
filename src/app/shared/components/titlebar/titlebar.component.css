@@ -13,6 +13,18 @@ a {
     color: white;
 }
 
+.navbar-brand{
+    font-size: 30px; 
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand{
+        font-size: 30px;
+    }
+    
+}
+
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color: white;
     vertical-align: middle;
