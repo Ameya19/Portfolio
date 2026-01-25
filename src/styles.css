@@ -19,7 +19,7 @@ html, body { height: 100%; }
 }
 
 @font-face {
-    font-family: 'Cascadia Code';
+    font-family: 'hooge 05_54';
     src: url('assets/fonts/Hoog/hoog0554.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
