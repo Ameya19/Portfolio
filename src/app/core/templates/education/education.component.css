@@ -151,6 +151,18 @@ h2{
   border-radius: 20px;
 }
 
+.heading-block{
+  text-align: center; 
+  margin-bottom: 2rem;
+}
+
+.heading-block h2{
+  color: #2dd4bf; 
+  font-weight: bold; 
+  font-size: 45px; 
+  font-weight: uppercase;
+}
+
 
 /* ==============================
    CERTIFICATION CARDS
@@ -158,13 +170,25 @@ h2{
 
 .certification-cards {
   display: flex;
-  gap: 24px;
+  gap: 25px;
   flex-wrap: wrap;
   margin-top: 2rem;
 }
 
+.certification-block{
+  border-color: beige; 
+  border: rgb(45, 57, 73) outset 1px; 
+  border-radius: 20px; 
+  padding: 2rem;
+}
+
+.panel.cert{
+  width: fit-content; 
+  padding-left: 4.5vw;
+}
+
 .card-title {
-  font-size: 1.2em;
+  font-size: 1.05em;
   font-weight: bold;
   margin-bottom: 0.5em;
   color: white;
@@ -174,14 +198,15 @@ img {
   width: 100%;
   border-radius: 8px;
   background-color: #2dd4bf;
-  padding: 20px;
+  padding: 17px;
 }
 
 .card {
   box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: rgb(20, 25, 32);
-  padding: 1.5em;
+  padding: 1.2em;
+  width: 17em;
 }
 
 .card:hover {
@@ -199,6 +224,18 @@ img {
   border: none;
   color: black;
   font-weight: bold;
+}
+
+.heading{
+  text-align: center; 
+  margin-bottom: 2rem;
+}
+
+.heading h2{
+  color: #2dd4bf; 
+  font-weight: bold; 
+  font-size: 45px; 
+  font-weight: uppercase;
 }
 
 /* ==============================
@@ -251,5 +288,23 @@ img {
 
   .certification-cards{
     justify-content: center;
+    font-size: 0.9em;
+  }
+
+  .heading h2{
+    font-size: 1.5em;
+  }
+
+  .heading-block h2{
+    font-size: 1.5em;
+  }
+
+  .education-section-content{
+    margin-left: 0vw;
+    padding: 1em;
+  }
+
+  .panel.cert{
+    padding-left: 1em;
   }
 }

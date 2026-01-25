@@ -13,11 +13,11 @@
 }
 
 .section-heading1{
-    font-size: 2.2em;
+    font-size: 1.9em;
 }
 
 .section-heading2{
-    font-size: 6.5em;
+    font-size: 5.5em;
     text-transform: uppercase;
 }
 
@@ -26,19 +26,19 @@
 }
 
 .section2{
-    margin-left: 10vw;
+    margin-left: 8.5vw;
 }
 
 .sitemaps{
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
     color: rgb(61, 61, 61);
 }
 
 .page-tabs{
     color: black;
-    font-size: 1.1em;
+    font-size: 0.95em;
     padding-bottom: 0.3em;
 }
 

@@ -68,7 +68,7 @@ hr {
 }
 
 .more-git-projects-heading{
-  font-size: 8em; 
+  font-size: 6em; 
   color: white;
 }
 
@@ -77,7 +77,7 @@ hr {
   font-family: sans-serif;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .projects-section {
     margin-left: 5vw;
     margin-right: 5vw;
