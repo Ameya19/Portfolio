@@ -1,5 +1,8 @@
-.contactSection {
+.contact-block{
     background-color: #2dd4bf;
+}
+
+.contactSection {
     padding-top: 5em;
     display: flex;
     font-family: "Cascadia Code", monospace;
@@ -54,6 +57,25 @@
 
 a{
     text-decoration: None;
+}
+
+hr{
+    color: rgb(28, 28, 28);
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-bottom: 0.3em;
+}
+
+.footer{
+    font-family: sans-serif;
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 480px) {
