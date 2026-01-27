@@ -53,6 +53,10 @@ hr {
   color: #2dd4bf;
 }
 
+.card-text{
+  text-align: justify;
+}
+
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35);

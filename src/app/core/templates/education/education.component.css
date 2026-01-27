@@ -163,6 +163,20 @@ h2{
   font-weight: uppercase;
 }
 
+.transcript{
+  background-color: #2dd4bf; 
+  border: none; 
+  padding: 0.5rem 1rem; 
+  border-radius: 5px;
+}
+
+.transcript-block{
+  align-items: center; 
+  justify-content: center; 
+  display: flex; 
+  margin-top: 1rem;
+}
+
 
 /* ==============================
    CERTIFICATION CARDS
@@ -238,6 +252,10 @@ img {
   font-weight: uppercase;
 }
 
+.points{
+  text-align: justify;
+}
+
 /* ==============================
    RESPONSIVE FIXES
 ================================ */
@@ -306,5 +324,10 @@ img {
 
   .panel.cert{
     padding-left: 1em;
+  }
+
+  .transcript-block{
+    display: flex;
+    padding-bottom: 0.5em;
   }
 }

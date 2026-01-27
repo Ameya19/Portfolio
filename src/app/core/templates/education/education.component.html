@@ -1,5 +1,5 @@
 <div class="education-section" #educationSection>
-    <h2 class="section-heading">Education</h2>
+    <h3 class="section-heading">Education</h3>
     <hr class="horizontal-line" />
     <div class="education-block">
         <app-toggle (educationToggled)="toggleValue($event)"></app-toggle>
@@ -27,16 +27,16 @@
                         <div style="color: gray;">
                             <p>Pune, Maharashtra(2017-2021)</p>
                         </div>
-                        <ul>
+                        <ul class="points">
                             <li>Graduated with a Bachelor’s degree, achieving a CGPA of 8.27.</li>
                             <li>Studied Data Structures and Algorithms, Object Oriented Programming, Computer Organization and Architecture, Database management systems. </li>
                             <li>Also Studied Artificial Intelligence and Machine Learning, Database Management System.</li>
-                            <div style="align-items: center; justify-content: center; display: flex; margin-top: 1rem;">
-                                <button style="background-color: #2dd4bf; border: none; padding: 0.5rem 1rem; border-radius: 5px;">
-                                    <a href="assets/documents/education/SCET_Transcript.pdf" target="_blank" style="text-decoration: none; color: black; font-weight: bold; font-size: 18px;">View Transcript</a>
-                                </button>
-                            </div>
                         </ul>
+                        <div class="transcript-block">
+                            <button class="transcript">
+                                <a href="assets/documents/education/SCET_Transcript.pdf" target="_blank" style="text-decoration: none; color: black; font-weight: bold; font-size: 18px;">View Transcript</a>
+                            </button>
+                        </div>
                     </div>
                 </section>
 

@@ -2,7 +2,6 @@
     color: White;
     -webkit-user-select: none; /* Safari */
     user-select: none;         /* Standard */
-    /*text-align: center;*/
     font-family: "Cascadia Code", monospace;
     height: auto;
     min-height: 80vh;
