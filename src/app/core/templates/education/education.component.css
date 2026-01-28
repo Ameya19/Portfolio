@@ -262,7 +262,7 @@ img {
 
 @media (max-width: 1024px) {
   .panel {
-    padding: 2rem;
+    padding: 0;
   }
 }
 
@@ -298,7 +298,7 @@ img {
   }
 
   .education-section-content{
-    margin-left: 2vw; 
+    margin-left: 0vw; 
     padding: 2rem; 
     width: fit-content; 
     margin-right: 2vw;
@@ -323,7 +323,7 @@ img {
   }
 
   .panel.cert{
-    padding-left: 1em;
+    padding-left: 0em;
   }
 
   .transcript-block{
