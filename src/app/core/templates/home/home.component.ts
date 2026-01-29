@@ -1,4 +1,10 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ViewChildren,
+  QueryList,
+  ElementRef
+} from '@angular/core';
 import { TitlebarComponent } from "../../../shared/components/titlebar/titlebar.component";
 import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from "../about/about.component";
@@ -10,15 +16,32 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [TitlebarComponent, MatButtonModule, AboutComponent, ExperienceComponent, EducationComponent, ProjectsComponent, ContactComponent],
+  imports: [
+    TitlebarComponent,
+    MatButtonModule,
+    AboutComponent,
+    ExperienceComponent,
+    EducationComponent,
+    ProjectsComponent,
+    ContactComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit {
 
-  constructor(private router: Router){ }
+  @ViewChildren(
+    'skillsSection, experienceSection, educationSection, projectsSection'
+  )
+  sections!: QueryList<ElementRef>;
+
+  constructor(private router: Router) {}
 
   ngAfterViewInit(): void {
+
+    /* ===============================
+       TYPEWRITER EFFECT
+    =============================== */
 
     class TxtType {
       private txt = '';
@@ -37,7 +60,6 @@ export class HomeComponent implements AfterViewInit {
         const current = this.loopNum % this.words.length;
         const fullTxt = this.words[current];
 
-        // Fixed speeds (NO randomness)
         const TYPING_SPEED = 120;
         const DELETING_SPEED = 70;
         const START_PAUSE = 400;
@@ -46,7 +68,6 @@ export class HomeComponent implements AfterViewInit {
           ? fullTxt.slice(0, this.txt.length - 1)
           : fullTxt.slice(0, this.txt.length + 1);
 
-        // 🔑 NO innerHTML — only text update
         this.span.textContent = this.txt;
 
         let delay = this.isDeleting ? DELETING_SPEED : TYPING_SPEED;
@@ -64,7 +85,6 @@ export class HomeComponent implements AfterViewInit {
       }
     }
 
-    // Init
     const elements = document.querySelectorAll('.typewrite');
 
     elements.forEach((el) => {
@@ -80,6 +100,28 @@ export class HomeComponent implements AfterViewInit {
         new TxtType(span, words, period);
       }
     });
+
+    /* ===============================
+       SECTION SCROLL ANIMATIONS
+    =============================== */
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target); // animate once
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    this.sections.forEach(section => {
+      if (section.nativeElement.id !== 'contact') {
+        observer.observe(section.nativeElement);
+      }
+    });
   }
 
   downloadResume() {
@@ -91,7 +133,7 @@ export class HomeComponent implements AfterViewInit {
     document.body.removeChild(link);
   }
 
-  onContactClick(){
-    this.router.navigate([], { fragment : 'contact'});
+  onContactClick() {
+    this.router.navigate([], { fragment: 'contact' });
   }
 }

@@ -109,6 +109,7 @@
     width: 275px;
     height: 300px;
     object-fit: cover;
+    border-radius: 10%;
 }
 
 .designation h1 {
@@ -184,4 +185,119 @@ button:hover {
 
 .mat-mdc-outlined-button:not(:disabled) {
     color: #2dd4bf;
+}
+
+/* Animations for home container */
+
+.home-container {
+  animation: fadeSlideIn 0.9s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.heading {
+  animation: fadeUp 0.6s ease-out 0.15s forwards;
+  opacity: 0;
+}
+
+.description {
+  animation: fadeUp 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wrap::after {
+  content: "|";
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.profile-picture {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: imgPop 0.8s ease-out 0.4s forwards;
+}
+
+@keyframes imgPop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.download-resume,
+.contact-me {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.download-resume:hover,
+.contact-me:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(45,212,191,0.35);
+}
+
+.home-container {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.home-container.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations for other section containers */
+.home-container {
+  animation: heroIn 0.9s ease-out forwards;
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.animate-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
