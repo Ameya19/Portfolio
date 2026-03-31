@@ -3,12 +3,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ToggleComponent } from '../../../shared/components/toggle/toggle.component';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { ɵEmptyOutletComponent } from "@angular/router";
-import { NgComponentOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-education',
-  imports: [MatSlideToggleModule, ToggleComponent, CommonModule, ɵEmptyOutletComponent],
+  imports: [MatSlideToggleModule, ToggleComponent, CommonModule],
   templateUrl: './education.component.html',
   styleUrl: './education.component.css',
   animations: [

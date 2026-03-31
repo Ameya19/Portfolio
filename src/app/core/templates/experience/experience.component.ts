@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { ToggleComponent } from '../../../shared/components/toggle/toggle.component';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-experience',
-  imports: [MatSlideToggleModule, ToggleComponent, CommonModule],
+  imports: [MatSlideToggleModule, CommonModule],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.css',
   animations: [

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-titlebar',
-  imports: [RouterLink, MatButtonModule],
+  imports: [MatButtonModule],
   templateUrl: './titlebar.component.html',
   styleUrl: './titlebar.component.css'
 })
