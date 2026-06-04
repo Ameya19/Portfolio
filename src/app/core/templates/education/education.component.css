@@ -342,6 +342,10 @@ img {
     transform: none !important;
   }
 
+  .card {
+    width: 15em !important;
+  }
+
   .panel {
     width: 100%;
     padding: clamp(0.8rem, 1rem, 1.5rem);
