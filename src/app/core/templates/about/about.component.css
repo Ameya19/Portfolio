@@ -153,18 +153,6 @@ hr {
         margin-right: 0;
     }
 
-    .mat-mdc-fab {
-        padding: clamp(0.7rem, 5vh, 1.3rem);
-        font-size: clamp(0.6rem, 1.5vw, 0.75rem);
-        min-width: clamp(65px, 9vw, 100px);
-        min-height: clamp(75px, 10vw, 110px);
-    }
-
-    .mat-mdc-fab img {
-        max-width: clamp(30px, 6vw, 60px);
-        max-height: clamp(30px, 6vw, 60px);
-    }
-
     .skills {
         gap: clamp(8px, 1.5vw, 12px);
     }

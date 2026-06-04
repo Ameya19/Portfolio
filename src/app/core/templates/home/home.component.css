@@ -107,6 +107,7 @@ button {
         min-height: auto;
         padding-top: clamp(2vh, 6vh, 12vh);
         gap: clamp(2vw, 6vw, 12vw);
+        margin-top: 5vh;
     }
 
     .left-section {
