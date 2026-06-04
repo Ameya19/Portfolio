@@ -45,6 +45,7 @@ hr {
   padding: 1.5em;
   color: white;
   width: 40vh;
+  height: auto;
 }
 
 .card-title {
