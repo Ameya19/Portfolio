@@ -5,6 +5,7 @@
 .contactSection {
     padding-top: 5em;
     display: flex;
+    flex-direction: column;
     font-family: "Cascadia Code", monospace;
     padding-bottom: 10em;
 }
@@ -31,6 +32,7 @@
 
 .section2{
     margin-left: 8.5vw;
+    margin-top: 2em;
 }
 
 .sitemaps{

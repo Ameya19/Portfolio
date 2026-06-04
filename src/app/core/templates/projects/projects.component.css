@@ -1,15 +1,16 @@
 .projects-section{
     color: White;
-    -webkit-user-select: none; /* Safari */
-    user-select: none;         /* Standard */
-    /*text-align: center;*/
+    -webkit-user-select: none;
+    user-select: none;
     font-family: "Cascadia Code", monospace;
     height: auto;
     min-height: 80vh;
-    margin-left: 13vw;
-    margin-right: 13vw;
+    margin-left: clamp(2vw, 13vw, 20vw);
+    margin-right: clamp(2vw, 13vw, 20vw);
     margin-bottom: 13vh;
-    padding-top: 90px;
+    padding-top: clamp(40px, 90px, 120px);
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 hr {
@@ -24,99 +25,198 @@ hr {
 }
 
 .section-heading {
-    font-size: 7em;
+    font-size: clamp(2em, 7vw, 7em);
     text-transform: uppercase;
     margin-bottom: 20px;
     font-family: "Cascadia Code", monospace;
     position: relative;
 }
+
 .projects-container {
     display: block;
     justify-content: center;
-    width: 73%;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    width: clamp(85%, 73%, 95%);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .card{
-  box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgb(20, 25, 32);
-  padding: 1.5em;
-  color: white;
-  width: 40vh;
-  height: auto;
+    box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgb(20, 25, 32);
+    padding: clamp(0.8em, 1.5em, 2em);
+    color: white;
+    width: clamp(250px, 40vh, 600px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-title {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-  color: #2dd4bf;
+    font-size: clamp(1em, 1.5em, 2em);
+    margin-bottom: 0.5em;
+    color: #2dd4bf;
 }
 
 .card-text{
-  text-align: justify;
+    text-align: justify;
+    font-size: clamp(0.85em, 1em, 1.2em);
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35);
-  border-color: #2dd4bf;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35);
+    border-color: #2dd4bf;
 }
 
 .project-cards{
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: clamp(12px, 24px, 32px);
     justify-content: center;
     align-items: center;
 }
 
 .more-git-projects-heading{
-  font-size: 6em; 
-  color: white;
+    font-size: clamp(2em, 6vw, 6em);
+    color: white;
 }
 
 .more-git-projects-subheading{
-  color: black; 
-  font-family: sans-serif;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: sans-serif;
+    font-size: clamp(0.9em, 1.2vw, 1.5em);
 }
 
-@media (max-width: 768px) {
-  .projects-section {
-    margin-left: 5vw;
-    margin-right: 5vw;
-  }
-  .section-heading {
-    font-size: 4em;
-  }
+.github-button {
+    background-color: #2dd4bf;
+    border: none;
+    padding: clamp(0.5rem, 1vw, 1.5rem) clamp(1rem, 2vw, 2rem);
+    border-radius: 5px;
+    font-size: clamp(0.9em, 1.2vw, 1.2em);
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
 
-  .more-git-projects-heading{
-    font-size: 3em;
-  }
+.github-button:hover {
+    background-color: #1fa99e;
+    transform: translateY(-2px);
+}
 
-  .more-git-projects-subheading{
-    font-weight: 550;
-  }
-
-  .more-git-projects{
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.2)), url('../../../../assets/images/github-background.jpg'); 
-  }
-
+.button-block {
+    margin-top: clamp(1em, 2em, 3em);
 }
 
 .more-git-projects {
     text-align: center;
-    margin-top: 10em;
-    padding-top: 15em;
-    padding-bottom: 15em;
-    font: san-serif;
-    margin-bottom: 10em;
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.5)), url('../../../../assets/images/github-background.jpg'); 
-    background-size: cover; 
+    margin-top: clamp(3em, 10em, 15em);
+    padding-top: clamp(5em, 15em, 20em);
+    padding-bottom: clamp(5em, 15em, 20em);
+    font-family: sans-serif;
+    margin-bottom: clamp(3em, 10em, 15em);
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.5)), url('../../../../assets/images/github-background.jpg');
+    background-size: cover;
     background-position: center;
 }
 
-.button-block {
-    margin-top: 2em;
+@media (max-width: 1024px) {
+    .projects-section {
+        margin-left: clamp(2vw, 8vw, 15vw);
+        margin-right: clamp(2vw, 8vw, 15vw);
+    }
+
+    .section-heading {
+        font-size: clamp(2em, 5vw, 5em);
+    }
+
+    .card {
+        width: clamp(220px, 35vw, 450px);
+    }
+
+    .more-git-projects-heading {
+        font-size: clamp(1.8em, 4vw, 4em);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-section {
+        margin-left: clamp(1vw, 5vw, 10vw);
+        margin-right: clamp(1vw, 5vw, 10vw);
+    }
+
+    .section-heading {
+        font-size: clamp(1.8em, 4vw, 3.5em);
+    }
+
+    .projects-container {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .card {
+        width: clamp(200px, 85vw, 400px);
+    }
+
+    .project-cards {
+        gap: clamp(10px, 16px, 20px);
+    }
+
+    .more-git-projects {
+        margin-top: clamp(2em, 5em, 8em);
+        padding-top: clamp(3em, 8em, 12em);
+        padding-bottom: clamp(3em, 8em, 12em);
+    }
+
+    .more-git-projects-heading {
+        font-size: clamp(1.8em, 4vw, 3em);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-section {
+        margin-left: clamp(1vw, 3vw, 5vw);
+        margin-right: clamp(1vw, 3vw, 5vw);
+    }
+
+    .section-heading {
+        font-size: clamp(1.5em, 3vw, 2.5em);
+    }
+
+    .card {
+        width: 90vw;
+        padding: 1em;
+    }
+
+    .card-title {
+        font-size: 1.1em;
+    }
+
+    .card-text {
+        font-size: 0.85em;
+    }
+
+    .more-git-projects-heading {
+        font-size: clamp(1.5em, 3vw, 2.5em);
+    }
+
+    .more-git-projects-subheading {
+        font-size: clamp(0.8em, 2vw, 1em);
+    }
+
+    .github-button {
+        padding: 0.6em 1.2em;
+        font-size: 0.9em;
+    }
+
+    .more-git-projects {
+        margin-top: clamp(1em, 3em, 5em);
+        padding-top: clamp(2em, 4em, 6em);
+        padding-bottom: clamp(2em, 4em, 6em);
+    }
 }
