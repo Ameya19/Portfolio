@@ -865,18 +865,31 @@
 
   const hidden = document.createElement("input");
   hidden.id = "hiddenInput";
+  hidden.type = "text";
+  hidden.dir = "ltr";
   hidden.autocomplete = "off";
   hidden.autocapitalize = "off";
+  hidden.autocorrect = "off";
   hidden.spellcheck = false;
+  hidden.setAttribute("inputmode", "text");
   document.body.appendChild(hidden);
 
-  function focusInput(){ hidden.focus({preventScroll:true}); }
+  function focusInput(){ hidden.focus({preventScroll:true}); placeCaretEnd(); }
   screen.addEventListener("click", focusInput);
   window.addEventListener("load", focusInput);
+
+  /* mobile keyboards (esp. Android/Gboard) can leave the caret at position 0
+     after a programmatic value change, which makes new characters get
+     inserted at the START instead of appended — this pins it to the end. */
+  function placeCaretEnd(){
+    const len = hidden.value.length;
+    try{ hidden.setSelectionRange(len, len); }catch(e){}
+  }
 
   hidden.addEventListener("input", ()=>{
     inputBuffer = hidden.value;
     updateTyped();
+    placeCaretEnd();
   });
 
   hidden.addEventListener("keydown", (e)=>{
@@ -899,6 +912,7 @@
         hidden.value = history[histIndex] || "";
         inputBuffer = hidden.value;
         updateTyped();
+        placeCaretEnd();
       }
     } else if(e.key === "ArrowDown"){
       e.preventDefault();
@@ -907,15 +921,20 @@
       hidden.value = history[histIndex] || "";
       inputBuffer = hidden.value;
       updateTyped();
+      placeCaretEnd();
     } else if(e.key === "Tab"){
       e.preventDefault();
       const partial = hidden.value.toLowerCase();
       const match = Object.keys(COMMANDS).find(c=>c.startsWith(partial) && partial.length>0);
-      if(match){ sfxSelect(); hidden.value = match; inputBuffer = match; updateTyped(); }
+      if(match){ sfxSelect(); hidden.value = match; inputBuffer = match; updateTyped(); placeCaretEnd(); }
     } else if(e.key.length === 1){
       sfxKey();
     }
   });
+
+  hidden.addEventListener("keyup", placeCaretEnd);
+  hidden.addEventListener("click", placeCaretEnd);
+  hidden.addEventListener("focus", placeCaretEnd);
 
   /* ---------- boot sequence ---------- */
   function boot(){
