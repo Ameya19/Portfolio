@@ -1,80 +1,18 @@
-/* ==============================
-   EDUCATION SECTION
-================================ */
-
 .education-section {
-  padding: clamp(2rem, 4rem, 6rem) clamp(1rem, 2rem, 3rem);
-  color: white;
-  min-height: 80vh;
-  margin-left: clamp(2vw, 13vw, 20vw);
-  margin-right: clamp(2vw, 13vw, 20vw);
-  margin-bottom: 3vh;
-  padding-top: clamp(60px, 90px, 120px);
-  -webkit-user-select: none;
-  user-select: none;
-  font-family: "Cascadia Code", monospace;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  background: var(--color-bg);
 }
-
-.section-heading {
-    display: block;
-    font-size: clamp(2em, 7vw, 7em);
-    text-transform: uppercase;
-    margin-bottom: clamp(10px, 20px, 30px);
-    font-family: "Cascadia Code", monospace;
-    position: relative;
-    color: white;
-}
-
-hr {
-    display: block;
-    margin-top: clamp(0.3em, 0.5em, 0.8em);
-    margin-left: auto;
-    border-style: inset;
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.248);
-    margin-bottom: 5vh;
-}
-
-/* ==============================
-   EDUCATION BLOCK
-================================ */
 
 .education-block {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
 }
-
-.college-name h2 {
-    color: #2dd4bf;
-    font-weight: bold;
-    font-size: clamp(1.8em, 2.5vw, 40px);
-    font-family: sans-serif;
-}
-
-/* ==============================
-   CONTENT BOX (viewport)
-================================ */
 
 .content-box {
   width: 100%;
   overflow: hidden;
-  margin-top: clamp(1rem, 1.5rem, 2rem);
 }
-
-h2{
-    color: #2dd4bf;
-    font-weight: bold;
-    font-size: clamp(1.8em, 2.5vw, 40px);
-    font-family: "Cascadia Code";
-}
-
-/* ==============================
-   SLIDING WRAPPER
-================================ */
 
 .content-wrapper {
   display: flex;
@@ -82,24 +20,15 @@ h2{
   transition: transform 450ms ease-in-out;
 }
 
-/* Slide to Certifications */
 .content-wrapper.show-skills {
   transform: translateX(-50%);
 }
 
-/* ==============================
-   PANELS
-================================ */
-
 .panel {
   width: 50%;
-  padding: clamp(1rem, 2rem, 4rem);
+  padding: 0 0.5rem;
   box-sizing: border-box;
 }
-
-/* ==============================
-   VISIBILITY CONTROL
-================================ */
 
 .content-wrapper.show-skills .panel:first-child {
   opacity: 0;
@@ -117,238 +46,136 @@ h2{
   pointer-events: auto;
 }
 
-/* ==============================
-   EDUCATION LIST
-================================ */
-
-.panel ul {
-  margin-top: clamp(1rem, 1.5rem, 2rem);
-  padding-left: clamp(1rem, 1.5rem, 2rem);
+.education-content,
+.certification-block {
+  padding: clamp(1.25rem, 3vw, 2rem);
 }
 
-.panel li {
-  margin-bottom: clamp(8px, 12px, 16px);
-  line-height: 1.6;
-  font-size: clamp(0.85em, 1em, 1.1em);
-}
-
-.education-section-content{
-  margin-left: clamp(1em, 14vw, 20vw);
-  padding: clamp(1rem, 2rem, 3rem);
-  width: fit-content;
-  margin-right: clamp(1em, 14vw, 20vw);
-  border-color: beige;
-  border: rgb(45, 57, 73) outset 1px;
-  border-radius: 20px;
-}
-
-.heading-block{
+.panel-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 1.25rem;
   text-align: center;
-  margin-bottom: clamp(1rem, 2rem, 3rem);
 }
 
-.heading-block h2{
-  color: #2dd4bf;
-  font-weight: bold;
-  font-size: clamp(1.8em, 3vw, 45px);
-  text-transform: uppercase;
-}
-
-.transcript{
-  background-color: #2dd4bf;
-  border: none;
-  padding: clamp(0.3rem, 0.5rem, 0.8rem) clamp(0.8rem, 1rem, 1.5rem);
-  border-radius: 5px;
-  font-size: clamp(0.85em, 1em, 1.1em);
-}
-
-.transcript-block{
-  align-items: center;
-  justify-content: center;
+.college-logo {
   display: flex;
-  margin-top: clamp(0.5rem, 1rem, 1.5rem);
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
-/* ==============================
-   CERTIFICATION CARDS
-================================ */
+.college-logo img {
+  width: 120px;
+  height: auto;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.college-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.375rem;
+  text-align: center;
+}
+
+.degree {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+  text-align: center;
+}
+
+.location {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.points {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+.points li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.transcript-block {
+  display: flex;
+  justify-content: center;
+}
+
+.cert-intro {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
 
 .certification-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.cert-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
   display: flex;
-  gap: clamp(15px, 25px, 35px);
-  flex-wrap: wrap;
-  margin-top: clamp(1rem, 2rem, 3rem);
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.certification-block{
-  border-color: beige;
-  border: rgb(45, 57, 73) outset 1px;
-  border-radius: 20px;
-  padding: clamp(1rem, 2rem, 3rem);
+.cert-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-sm);
 }
 
-.panel.cert{
-  width: fit-content;
-  padding-left: clamp(2vw, 4.5vw, 6vw);
+.cert-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: none;
+  padding: 0;
+  border-radius: 0;
 }
 
-.card-title {
-  font-size: clamp(0.9em, 1.05em, 1.2em);
-  font-weight: bold;
-  margin-bottom: clamp(0.3em, 0.5em, 0.8em);
-  color: white;
+.cert-body h5 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.4;
 }
 
-img {
-  width: 100%;
-  border-radius: 8px;
-  background-color: #2dd4bf;
-  padding: clamp(10px, 17px, 25px);
-}
-
-.card {
-  box-shadow: 0 8px 20px rgba(45, 212, 191, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgb(20, 25, 32);
-  padding: clamp(0.8em, 1.2em, 1.5em);
-  width: clamp(12em, 17em, 20em);
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(45, 212, 191, 0.35);
-  border-color: #2dd4bf;
-}
-
-.card-text{
-  color: gray;
-  font-size: clamp(0.85em, 0.95em, 1.1em);
-}
-
-.btn.btn-primary {
-  background-color: #2dd4bf;
-  border: none;
-  color: black;
-  font-weight: bold;
-  padding: clamp(0.4rem, 0.5rem, 0.8rem) clamp(0.8rem, 1rem, 1.5rem);
-  font-size: clamp(0.85em, 0.95em, 1.1em);
-}
-
-.heading{
-  text-align: center;
-  margin-bottom: clamp(1rem, 2rem, 3rem);
-}
-
-.heading h2{
-  color: #2dd4bf;
-  font-weight: bold;
-  font-size: clamp(1.8em, 3vw, 45px);
-  text-transform: uppercase;
-}
-
-.points{
-  text-align: justify;
-  font-size: clamp(0.85em, 1em, 1.1em);
-}
-
-/* ==============================
-   RESPONSIVE MEDIA QUERIES
-================================ */
-@media (max-width: 1920px) {
-  .education-section {
-    margin-left: clamp(1vw, 10vw, 15vw);
-    margin-right: clamp(1vw, 10vw, 15vw);
-  }
-
-  .education-section-content {
-    margin-left: clamp(1em, 10vw, 15vw);
-    margin-right: clamp(1em, 10vw, 15vw);
-    width: 47vw;
-  }
-}
-
-
-@media (max-width: 1440px){
-  .education-section {
-    margin-left: clamp(1vw, 10vw, 15vw);
-    margin-right: clamp(1vw, 10vw, 15vw);
-  }
-
-  .education-section-content {
-    margin-left: clamp(1em, 10vw, 15vw);
-    margin-right: clamp(1em, 10vw, 15vw);
-    width: 47vw;
-  }
-}
-
-@media (max-width: 1024px) {
-  .education-section {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .education-section-content {
-    margin-left: clamp(1em, 5vw, 10vw);
-    margin-right: clamp(1em, 5vw, 10vw);
-    width: 74vw;
-  }
-
-  .panel {
-    padding: clamp(1rem, 1.5rem, 2.5rem);
-  }
-
-  .section-heading {
-    font-size: clamp(1.8em, 5vw, 5em);
-  }
-
-  .card {
-    width: clamp(11em, 15em, 18em);
-  }
+.cert-year {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .education-section {
-    margin-left: clamp(1vw, 1vw, 1vw);
-    margin-right: clamp(1vw, 1vw, 1vw );
-  }
-
-  .section-heading {
-    font-size: clamp(1.5em, 4vw, 3.5em);
-  }
-
-  .education-section-content{
-    margin-left: 0;
-    margin-right: 0;
-    width: 75vw;
-  }
-
-  .certification-cards {
-    justify-content: center;
-  }
-
-  .card {
-    width: clamp(10em, 13em, 16em);
-  }
-
-  .panel {
-    padding: clamp(1rem, 1.2rem, 1.8rem);
-  }
-}
-
-@media (max-width: 480px) {
   .content-wrapper {
     flex-direction: column;
     width: 100%;
     transform: none !important;
   }
 
-  .card {
-    width: 15em !important;
-  }
-
   .panel {
     width: 100%;
-    padding: clamp(0.8rem, 1rem, 1.5rem);
+    padding: 0;
   }
 
   .content-wrapper.show-skills .panel:first-child,
@@ -356,65 +183,17 @@ img {
     display: none;
   }
 
-  .section-heading {
-    font-size: clamp(3em, 5vw, 4.5em);
+  .certification-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .college-logo img {
+    width: 100px;
   }
 
-  .education-section {
-    margin-left: clamp(1vw, 3vw, 5vw);
-    margin-right: clamp(1vw, 3vw, 5vw);
-    margin-bottom: 10vh;
-    padding-top: clamp(40px, 60px, 80px);
-  }
-
-  .education-block{
-    margin: 0;
-  }
-
-  .education-section-content{
-    margin-left: 0;
-    padding: clamp(1rem, 1.5rem, 2rem);
-    width: fit-content;
-    margin-right: clamp(1vw, 2vw, 3vw);
-  }
-
-  .certification-cards{
-    justify-content: center;
-    font-size: clamp(0.8em, 0.9em, 1em);
-    gap: clamp(10px, 15px, 20px);
-  }
-
-  .heading h2{
-    font-size: clamp(1.2em, 2vw, 1.5em);
-  }
-
-  .heading-block h2{
-    font-size: clamp(1.2em, 2vw, 1.5em);
-  }
-
-  .card {
-    width: clamp(9em, 11em, 13em);
-    padding: clamp(0.6em, 0.8em, 1em);
-  }
-
-  .card-title {
-    font-size: clamp(0.8em, 0.9em, 1em);
-  }
-
-  .card-text {
-    font-size: clamp(0.75em, 0.85em, 0.95em);
-  }
-
-  .panel.cert{
-    padding-left: 0;
-  }
-
-  .transcript-block{
-    display: flex;
-    padding-bottom: clamp(0.3rem, 0.5rem, 0.8rem);
-  }
-
-  .college-name h2 {
-    font-size: clamp(1.2em, 2vw, 1.8em);
+  .points {
+    font-size: 0.875rem;
   }
 }

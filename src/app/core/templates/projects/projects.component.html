@@ -1,32 +1,33 @@
-<div class="projects-section" #projectSection>
-    <h2 class="section-heading">Projects</h2>
-    <hr class="horizontal-line" />
-    <div class="projects-container">
-        <div class="project-cards">
-            <div class="card" style="width: 28rem; height: 45rem;">
-                <img src="assets/images/conceptmap.png" class="card-img-top" alt="Concept Map Project">
-                <div class="card-body">
-                    <h5 class="card-title">Concept Map Generation and Summerization</h5>
-                    <p class="card-text">Built an intelligent document analysis application that automates concept map generation and content summarization using Natural Language Processing and machine learning techniques. The system extracts important concepts, maps semantic relationships, and produces concise summaries to improve knowledge discovery and information retention.</p>
-                </div>
-            </div>
+<div class="projects-section section-container" #projectSection>
+  <h2 class="section-title">Projects</h2>
+  <p class="section-subtitle">Selected work and side projects</p>
+  <hr class="section-divider" />
 
-            <div class="card" style="width: 28rem; height: 45rem;" (click)="onExpenseSplitterClick($event)">
-                <img src="assets/images/ExpenseSplitter.png" class="card-img-top" height="320" alt="ExpenseSplitter Project">
-                <div class="card-body">
-                    <h5 class="card-title">ExpenseSplitter</h5>
-                    <p class="card-text">ExpenseSplitter is a full-stack web application that simplifies splitting shared expenses among groups of people. Built with ASP.NET Core 9 Web API (Clean Architecture) and Angular 17 (Standalone Components), it features JWT authentication, real-time balance calculation using a greedy debt-simplification algorithm, and a complete expense management system with multiple split types (Equal, Percentage, Exact). The backend uses PostgreSQL with Entity Framework Core for data persistence, while the frontend leverages Angular Material for a clean, responsive UI.</p>
-                </div>
-            </div>
-        </div> 
-    </div>
+  <div class="project-cards">
+    <article class="project-card card">
+      <img src="assets/images/conceptmap.png" alt="Concept Map Project" class="project-image" />
+      <div class="project-body">
+        <h3 class="project-title">Concept Map Generation and Summarization</h3>
+        <p class="project-desc">Built an intelligent document analysis application that automates concept map generation and content summarization using Natural Language Processing and machine learning techniques. The system extracts important concepts, maps semantic relationships, and produces concise summaries to improve knowledge discovery and information retention.</p>
+      </div>
+    </article>
+
+    <article class="project-card card" (click)="onExpenseSplitterClick($event)">
+      <img src="assets/images/ExpenseSplitter.png" alt="ExpenseSplitter Project" class="project-image" />
+      <div class="project-body">
+        <h3 class="project-title">ExpenseSplitter</h3>
+        <p class="project-desc">ExpenseSplitter is a full-stack web application that simplifies splitting shared expenses among groups of people. Built with ASP.NET Core 9 Web API (Clean Architecture) and Angular 17 (Standalone Components), it features JWT authentication, real-time balance calculation using a greedy debt-simplification algorithm, and a complete expense management system with multiple split types (Equal, Percentage, Exact).</p>
+      </div>
+    </article>
+  </div>
 </div>
-<div class="more-git-projects">
-    <h2 class="more-git-projects-heading">More Projects on GitHub</h2>
-    <h4 class="more-git-projects-subheading">Every project tells a story — from a spark of an idea to a fully functional solution, I craft experiences that solve problems and inspire users.</h4>
-    <div class="button-block">
-        <button style="background-color: #2dd4bf; border: none; padding: 0.5rem 1rem; border-radius: 5px; font-size: 20px; margin-top: 2rem;">
-            <a href="https://github.com/Ameya19" target="_blank" style="text-decoration: none; color: black; font-weight: bold; font-size: 18px;">More Projects on GitHub</a>
-        </button>
-    </div>
+
+<div class="github-cta">
+  <div class="github-cta-inner">
+    <h2 class="github-cta-title">More on GitHub</h2>
+    <p class="github-cta-text">Every project tells a story — from a spark of an idea to a fully functional solution.</p>
+    <a href="https://github.com/Ameya19" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      View GitHub Profile
+    </a>
+  </div>
 </div>

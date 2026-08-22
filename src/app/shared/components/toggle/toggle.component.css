@@ -1,97 +1,75 @@
-*, *:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: 'Roboto Condensed', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  color: #ECEFF1;
-  background-image: radial-gradient(lighten(#263238, 20%), #263238);
-}
-
 .toggle {
   position: relative;
   display: block;
   margin: 0 auto;
-  width: 25em;
-  height: 60px;
-  color: white;
+  width: 20rem;
+  max-width: 100%;
+  height: 44px;
+  color: var(--color-text);
   outline: 0;
   text-decoration: none;
   border-radius: 100px;
-  border: 2px solid #546E7A;
-  background-color: #263238;
-  transition: all 500ms;
-  &:active {
-    background-color: darken(#263238, 5%);
-  }
-  &:hover:not(.toggle--moving) {
-    &:after {
-      background-color: #455A64;
-    }
-  }
-  &:after {
-    display: block;
-    position: absolute;
-    top: 4px;
-    bottom: 4px;
-    left: 4px;
-    width: calc(50% - 4px);
-    line-height: 45px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.2em;
-    color: white;
-    background-color: #37474F;
-    border: 2px solid;
-    transition: all 500ms; 
-  }
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  transition: all 300ms ease;
 }
-.toggle--on {
-  &:after {
-    content: 'Education';
-    border-radius: 50px 5px 5px 50px;
-    color: #2dd4bf;
-  }
+
+.toggle:active {
+  background-color: var(--color-interactive-hover);
 }
-.toggle--off {
-  &:after {
-    content: 'Certifications';
-    border-radius: 5px 50px 50px 5px;
-    transform: translate(100%, 0);
-    color: white;
-  }
+
+.toggle:hover:not(.toggle--moving)::after {
+  background-color: var(--color-interactive-hover);
 }
+
+.toggle::after {
+  display: block;
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  line-height: 36px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  transition: all 300ms ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle--on::after {
+  content: 'Education';
+  color: var(--color-accent);
+}
+
+.toggle--off::after {
+  content: 'Certifications';
+  transform: translate(100%, 0);
+}
+
 .toggle--moving {
-  background-color: darken(#263238, 5%);
-  &:after {
-    color: transparent;
-    border-color: darken(#546E7A, 8%);
-    background-color: darken(#37474F, 10%);
-    transition: color 0s,
-                transform 500ms,
-                border-radius 500ms,          
-                background-color 500ms;
+  background-color: var(--color-interactive-hover);
+}
+
+.toggle--moving::after {
+  color: transparent;
+  border-color: var(--color-border-hover);
+  background-color: var(--color-interactive-hover);
+  transition: color 0s, transform 300ms ease, background-color 300ms ease;
+}
+
+@media (max-width: 480px) {
+  .toggle {
+    width: 16rem;
   }
-}
 
-
-h1 {
-  font-size: 64px;
-  margin-top: 0;
-  margin-bottom: 50px;
-}
-
-@media (max-width:480px) {
-  .toggle{
-    width: 17em;
-    &:after{
-      font-size: 0.8em;
-    }
+  .toggle::after {
+    font-size: 0.75rem;
+    line-height: 32px;
   }
 }

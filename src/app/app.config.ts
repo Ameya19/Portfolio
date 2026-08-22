@@ -6,8 +6,8 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes, withInMemoryScrolling({
-      anchorScrolling: 'enabled',
-      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'disabled',
+      scrollPositionRestoration: 'disabled',
       })
     ),
     provideAnimations()

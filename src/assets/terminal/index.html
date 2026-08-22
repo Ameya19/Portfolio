@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ameya Bhingarkar — Software Developer</title>
+<meta name="description" content="Ameya Bhingarkar — Full-stack Software Developer at GMCS. Terminal-based portfolio. Angular, .NET, Python.">
+<style>
+  :root, html[data-theme="dark-plus"]{
+    --bg:#1e1e1e;
+    --bg-2:#181818;
+    --fg:#d4d4d4;
+    --fg-dim:#7f7f7f;
+    --accent:#4ec9b0;
+    --accent-2:#dcdcaa;
+    --err:#f14c4c;
+    --border:#333333;
+    --mono: "JetBrains Mono","Fira Code",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html[data-theme="terminal-green"]{
+    --bg:#0d0f0d; --bg-2:#111411; --fg:#c9d1c4; --fg-dim:#6f7a68;
+    --accent:#7fe08a; --accent-2:#e0c37f; --err:#e07f7f; --border:#2a2f28;
+  }
+  html[data-theme="monokai"]{
+    --bg:#272822; --bg-2:#1e1f1a; --fg:#f8f8f2; --fg-dim:#75715e;
+    --accent:#a6e22e; --accent-2:#e6db74; --err:#f92672; --border:#3e3d32;
+  }
+  html[data-theme="one-dark"]{
+    --bg:#282c34; --bg-2:#21252b; --fg:#abb2bf; --fg-dim:#5c6370;
+    --accent:#98c379; --accent-2:#e5c07b; --err:#e06c75; --border:#3a3f4b;
+  }
+  html[data-theme="dracula"]{
+    --bg:#282a36; --bg-2:#21222c; --fg:#f8f8f2; --fg-dim:#6272a4;
+    --accent:#50fa7b; --accent-2:#f1fa8c; --err:#ff5555; --border:#44475a;
+  }
+  html[data-theme="solarized-light"]{
+    --bg:#fdf6e3; --bg-2:#eee8d5; --fg:#586e75; --fg-dim:#93a1a1;
+    --accent:#2aa198; --accent-2:#b58900; --err:#dc322f; --border:#d3cbb7;
+  }
+  html[data-theme="nord"]{
+    --bg:#2e3440; --bg-2:#272c36; --fg:#d8dee9; --fg-dim:#6b7688;
+    --accent:#88c0d0; --accent-2:#ebcb8b; --err:#bf616a; --border:#3b4252;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{
+    margin:0;padding:0;
+    height:100%;
+    height:100dvh;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--mono);
+    font-size:15px;
+    overflow:hidden;
+    transition:background .25s ease, color .25s ease;
+    -webkit-text-size-adjust:100%;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    background:repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.018) 0px,
+      rgba(255,255,255,0.018) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    z-index:50;
+    mix-blend-mode:overlay;
+  }
+  #crt{
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:51;
+    background:radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%);
+  }
+  #app{
+    height:100%;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+  }
+  #titlebar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    background:var(--bg-2);
+    border-bottom:1px solid var(--border);
+    color:var(--fg-dim);
+    font-size:12px;
+    letter-spacing:.04em;
+    flex-shrink:0;
+    flex-wrap:wrap;
+    row-gap:6px;
+  }
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .dot.r{background:#e0847f;}
+  .dot.y{background:#e0cf7f;}
+  .dot.g{background:#8fe07f;}
+  #titletext{margin-left:8px;opacity:.8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  #titlebar-right{margin-left:auto;display:flex;align-items:center;gap:6px;position:relative;flex-shrink:0;}
+  #themeBtn{
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--fg-dim);
+    font-family:var(--mono);
+    font-size:11.5px;
+    padding:6px 10px;
+    border-radius:4px;
+    cursor:pointer;
+    display:flex;align-items:center;gap:6px;
+    letter-spacing:.02em;
+    transition:border-color .2s ease, color .2s ease;
+    min-height:30px;
+    touch-action:manipulation;
+  }
+  #themeBtn:hover{color:var(--accent);border-color:var(--accent);}
+  #soundBtn{
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--fg-dim);
+    font-family:var(--mono);
+    font-size:13px;
+    padding:6px 9px;
+    border-radius:4px;
+    cursor:pointer;
+    min-height:30px;
+    touch-action:manipulation;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  #soundBtn:hover{color:var(--accent);border-color:var(--accent);}
+  #soundBtn.muted{color:var(--err);opacity:.7;}
+  #soundBtn.muted #soundIcon::after{content:"";}
+  #themeBtn .swatch{width:9px;height:9px;border-radius:2px;background:var(--accent);display:inline-block;flex-shrink:0;}
+  #themeMenu{
+    position:absolute;top:calc(100% + 6px);right:0;
+    background:var(--bg-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:4px;
+    min-width:170px;
+    max-width:min(220px, calc(100vw - 24px));
+    display:none;
+    flex-direction:column;
+    z-index:60;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+    max-height:min(320px, calc(100dvh - 70px));
+    overflow-y:auto;
+  }
+  #themeMenu.open{display:flex;}
+  #themeMenu button{
+    background:transparent;border:none;color:var(--fg);
+    font-family:var(--mono);font-size:12.5px;
+    text-align:left;padding:9px 9px;border-radius:4px;
+    cursor:pointer;display:flex;align-items:center;gap:8px;
+    min-height:36px;
+    touch-action:manipulation;
+  }
+  #themeMenu button:hover, #themeMenu button:active{background:var(--border);}
+  #themeMenu button .dotc{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  #themeMenu button.active{color:var(--accent);}
+  #themeMenu button.active::after{content:"✓";margin-left:auto;}
+  #screen{
+    flex:1;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:0 22px 100px;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+  }
+  #screen::-webkit-scrollbar{width:10px;}
+  #screen::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
+  #screen::-webkit-scrollbar-track{background:transparent;}
+
+  #bannerPinned{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--bg);
+    padding:18px 0 12px;
+    border-bottom:1px solid var(--border);
+    margin-bottom:12px;
+    transition:background .25s ease;
+  }
+  #log{padding-top:2px;}
+  .line{white-space:pre-wrap;word-break:break-word;line-height:1.55;}
+  .prompt-row{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;}
+  .ps{color:var(--accent);flex-shrink:0;}
+  .ps .path{color:var(--accent-2);}
+  .cmdtext{color:var(--fg);}
+  .out{color:var(--fg);margin:2px 0 10px;}
+  .dim{color:var(--fg-dim);}
+  .accent{color:var(--accent);}
+  .accent2{color:var(--accent-2);}
+  .err{color:var(--err);}
+  a{color:var(--accent-2);text-decoration:none;border-bottom:1px dashed rgba(224,195,127,.4);}
+  a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+  h2.sec{
+    color:var(--accent);
+    margin:0 0 6px;
+    font-size:15px;
+    text-transform:lowercase;
+    letter-spacing:.03em;
+  }
+  h2.sec::before{content:"## "; color:var(--fg-dim);}
+  .proj{
+    border-left:2px solid var(--border);
+    padding:2px 0 8px 12px;
+    margin:6px 0 12px;
+  }
+  .proj .name{color:var(--accent-2);font-weight:600;}
+  .proj .links{color:var(--fg-dim);}
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:2px 12px;margin:4px 0;}
+  .kv .k{color:var(--fg-dim);}
+  table.skills{border-collapse:collapse;margin:6px 0;}
+  table.skills td{padding:2px 14px 2px 0;vertical-align:top;}
+  table.skills td.k{color:var(--fg-dim);white-space:nowrap;}
+  .badge{
+    display:inline-block;border:1px solid var(--border);color:var(--fg-dim);
+    padding:0 6px;border-radius:3px;font-size:12px;margin-left:6px;
+  }
+  #inputRow{display:flex;gap:8px;align-items:baseline;}
+  #hiddenInput{
+    position:absolute;opacity:0;pointer-events:none;
+    font-size:16px;
+    top:0;left:0;
+    width:1px;height:1px;
+  }
+  #typed{white-space:pre-wrap;word-break:break-word;}
+  .cursor{
+    display:inline-block;width:8px;height:16px;background:var(--accent);
+    vertical-align:text-bottom;margin-left:2px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+  .type-caret{
+    display:inline-block;width:8px;height:14px;background:var(--accent);
+    vertical-align:text-bottom;margin-left:2px;
+    animation:blink .5s steps(1) infinite;
+  }
+  .boot{color:var(--fg-dim);}
+  #startOverlay{
+    position:fixed;inset:0;
+    z-index:100;
+    background:var(--bg);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:14px;
+    cursor:pointer;
+    transition:opacity .35s ease, visibility .35s ease;
+  }
+  #startOverlay.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+  #startArt{color:var(--accent);font-size:22px;letter-spacing:.3em;opacity:.85;}
+  #startText{
+    color:var(--accent-2);
+    font-size:15px;
+    letter-spacing:.08em;
+    animation:blink 1s steps(1) infinite;
+  }
+  #startSub{color:var(--fg-dim);font-size:11.5px;}
+  @media (max-width:480px){
+    #startText{font-size:12.5px;text-align:center;padding:0 20px;}
+  }
+  .help-row{display:grid;grid-template-columns:110px 1fr;gap:2px 10px;}
+  .help-row .c{color:var(--accent);}
+  .banner-art{
+    display:block;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:2px;
+  }
+  ::selection{background:var(--accent);color:#0d0f0d;}
+  @media (max-width:640px){
+    body{font-size:13px;}
+    #screen{padding:14px 12px 90px;}
+    .kv{grid-template-columns:88px 1fr;}
+    .help-row{grid-template-columns:88px 1fr;}
+    #titlebar{padding:8px 10px;}
+    #titletext{font-size:11px;max-width:38vw;}
+    .banner-art{font-size:9px;line-height:1.3;}
+    table.skills td{padding:2px 10px 4px 0;}
+    table.skills td.k{display:block;padding-top:6px;}
+    table.skills tr{display:block;margin-bottom:2px;}
+  }
+  @media (max-width:400px){
+    #themeBtnLabel{display:none;}
+    #themeBtn{padding:6px 8px;}
+    .banner-art{font-size:7.5px;}
+  }
+  @media (hover:none){
+    #themeBtn, #themeMenu button{min-height:38px;}
+  }
+</style>
+</head>
+<body>
+<div id="crt"></div>
+<div id="app">
+  <div id="titlebar">
+    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+    <span id="titletext">ameya@portfolio: ~</span>
+    <div id="titlebar-right">
+      <button id="soundBtn" type="button" aria-pressed="true" title="toggle sound">
+        <span id="soundIcon">♪</span>
+      </button>
+      <button id="themeBtn" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="swatch"></span><span id="themeBtnLabel">theme</span>
+      </button>
+      <div id="themeMenu" role="menu"></div>
+    </div>
+  </div>
+  <div id="screen" tabindex="0">
+    <div id="bannerPinned"></div>
+    <div id="log"></div>
+  </div>
+  <div id="startOverlay">
+    <div id="startArt">▓▓▓</div>
+    <div id="startText">PRESS ANY KEY / TAP TO START</div>
+    <div id="startSub">(unlocks sound for the retro boot sequence)</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- DATA — edit this block to update the site ---------------- */
+  const DATA = {
+    name: "Ameya Bhingarkar",
+    role: "Software Developer",
+    company: "GMCS",
+    tagline: "Full-stack developer building clean-architecture apps with Angular, .NET, and Python.",
+    location: "India",
+    email: "your-email@example.com",
+    github: "https://github.com/your-username",
+    linkedin: "https://linkedin.com/in/your-username",
+    twitter: "",
+    resumeUrl: "",
+
+    whoami: [
+      "Hey, I'm Ameya — a Software Developer at GMCS working across the full stack.",
+      "",
+      "Day to day I build with Angular, .NET, and Python, and I care about clean",
+      "architecture — separating concerns so a codebase stays sane as it grows.",
+      "",
+      "Outside of work I build portfolio projects end to end (backend, frontend,",
+      "infra) to dig deeper into patterns I don't get to use daily — local AI",
+      "inference, vector search, file storage abstractions, that kind of thing.",
+      "",
+      "Run `projects` to see what I've shipped, or `skills` for the toolbox."
+    ],
+
+    projects: [
+      {
+        name: "Second Brain — Temporal Memory RAG",
+        desc: "A full-stack Retrieval-Augmented-Generation app that remembers not just *what* you saved, but *when* and *how often* you've revisited it. Re-ranking blends semantic similarity with recency and access-frequency signals, plus contradiction detection to flag notes that conflict with each other.",
+        stack: [".NET 9", "Angular 22", "PostgreSQL + pgvector", "Ollama (nomic-embed-text, gemma4)"],
+        notes: "Runs local AI inference end to end — no external API calls. Dark cyberpunk UI.",
+        links: []
+      },
+      {
+        name: "Expense Splitter",
+        desc: "A clean-architecture expense-splitting app — the kind you'd actually use with roommates or on a trip. Currently extending it with receipt image upload, stored behind an IFileStorageService abstraction so the backing store (local disk today, cloud tomorrow) can change without touching business logic.",
+        stack: [".NET 9", "Angular", "PostgreSQL"],
+        notes: "Built to interview-ready depth — layered architecture, proper entity boundaries.",
+        links: []
+      }
+    ],
+
+    experience: [
+      { role: "Software Developer", org: "GMCS", period: "Current", detail: "Full-stack development across Angular, .NET, and Python." },
+      { role: "Developer", org: "OpenDental-style work", period: "", detail: "Dental practice management system in C# / .NET." },
+      { role: "Developer", org: "Ohh Look", period: "", detail: "Service-provider platform built in Angular with .NET APIs." }
+    ],
+
+    skills: {
+      "Languages":   ["C#", "Python", "TypeScript", "JavaScript", "SQL"],
+      "Frameworks":  ["Angular", ".NET / ASP.NET Core", "Entity Framework Core"],
+      "Data":        ["PostgreSQL", "pgvector"],
+      "AI / ML":     ["Ollama (local inference)", "RAG pipelines", "embedding search"],
+      "Tools":       ["Git", "Docker", "Clean Architecture", "REST APIs"]
+    },
+
+    achievements: [
+      "Shipped multiple full-stack apps solo — backend, frontend, and infra",
+      "Resolved cross-stack issues spanning EF Core, PostgreSQL, and Angular build tooling",
+      "Migrated legacy Angular templates (`*ngIf`) to modern control-flow syntax"
+    ],
+
+    education: [
+      { degree: "— add your degree here —", school: "— add your college/university —", period: "" }
+    ]
+  };
+  /* ---------------------------------------------------------------------------- */
+
+  /* ---------------- audio engine (synthesized, no external files) ---------------- */
+  const SFX_KEY = "portfolio-sfx-enabled";
+  let audioCtx = null;
+  let sfxEnabled = true;
+
+  function ensureCtx(){
+    if(!audioCtx){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if(!AC) return null;
+      audioCtx = new AC();
+    }
+    if(audioCtx.state === "suspended") audioCtx.resume();
+    return audioCtx;
+  }
+
+  function beep({freq=440, dur=0.06, type="square", gain=0.05, slideTo=null, delay=0}={}){
+    if(!sfxEnabled) return;
+    const ctx = ensureCtx();
+    if(!ctx) return;
+    const t0 = ctx.currentTime + delay;
+    const osc = ctx.createOscillator();
+    const g = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, t0);
+    if(slideTo !== null){
+      osc.frequency.exponentialRampToValueAtTime(Math.max(slideTo,1), t0 + dur);
+    }
+    g.gain.setValueAtTime(gain, t0);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    osc.connect(g).connect(ctx.destination);
+    osc.start(t0);
+    osc.stop(t0 + dur + 0.02);
+  }
+
+  /* subtle mechanical-keyboard-ish blip, pitch varies slightly per press for a "typing" feel */
+  function sfxKey(){
+    const f = 620 + Math.random()*140;
+    beep({freq:f, dur:0.028, type:"square", gain:0.035});
+  }
+  function sfxBackspace(){
+    beep({freq:260, dur:0.04, type:"square", gain:0.035});
+  }
+  function sfxEnter(){
+    beep({freq:520, dur:0.05, type:"triangle", gain:0.06});
+    beep({freq:780, dur:0.07, type:"triangle", gain:0.05, delay:0.045});
+  }
+  function sfxError(){
+    beep({freq:220, dur:0.14, type:"sawtooth", gain:0.06, slideTo:90});
+  }
+  function sfxSelect(){
+    beep({freq:900, dur:0.035, type:"square", gain:0.045});
+  }
+  function sfxTheme(){
+    beep({freq:440, dur:0.05, type:"sine", gain:0.05});
+    beep({freq:660, dur:0.06, type:"sine", gain:0.045, delay:0.05});
+    beep({freq:880, dur:0.08, type:"sine", gain:0.04, delay:0.1});
+  }
+  function sfxBoot(){
+    [330,440,554,660].forEach((f,i)=>{
+      beep({freq:f, dur:0.09, type:"square", gain:0.05, delay:i*0.09});
+    });
+  }
+  function sfxClick(){
+    beep({freq:1000, dur:0.02, type:"square", gain:0.03});
+  }
+  /* retro 8-bit "typewriter" tick used while the banner types itself out */
+  function sfxType(){
+    const f = 780 + Math.random()*260;
+    beep({freq:f, dur:0.018, type:"square", gain:0.028});
+  }
+
+  function setSfxEnabled(on){
+    sfxEnabled = on;
+    try{ localStorage.setItem(SFX_KEY, on ? "1":"0"); }catch(e){}
+    const btn = document.getElementById("soundBtn");
+    const icon = document.getElementById("soundIcon");
+    if(btn){
+      btn.classList.toggle("muted", !on);
+      btn.setAttribute("aria-pressed", on ? "true":"false");
+      btn.title = on ? "sound on (click to mute)" : "sound off (click to unmute)";
+    }
+    if(icon) icon.textContent = on ? "♪" : "✕";
+  }
+
+  function initSoundUI(){
+    let saved = "1";
+    try{ saved = localStorage.getItem(SFX_KEY) ?? "1"; }catch(e){}
+    setSfxEnabled(saved !== "0");
+    const btn = document.getElementById("soundBtn");
+    btn.addEventListener("click", (e)=>{
+      e.stopPropagation();
+      ensureCtx();
+      const wasOn = sfxEnabled;
+      setSfxEnabled(!sfxEnabled);
+      if(!wasOn) sfxSelect();
+    });
+  }
+  /* -------------------------------------------------------------------------------- */
+
+  /* ---------------- themes ---------------- */
+  const THEMES = [
+    { id:"dark-plus",       label:"Dark+ (VS Code)", swatch:"#4ec9b0" },
+    { id:"one-dark",        label:"One Dark Pro",    swatch:"#98c379" },
+    { id:"monokai",         label:"Monokai",         swatch:"#a6e22e" },
+    { id:"dracula",         label:"Dracula",         swatch:"#50fa7b" },
+    { id:"nord",            label:"Nord",            swatch:"#88c0d0" },
+    { id:"terminal-green",  label:"Terminal Green",  swatch:"#7fe08a" },
+    { id:"solarized-light", label:"Solarized Light", swatch:"#b58900" }
+  ];
+  const THEME_KEY = "portfolio-theme";
+
+  function applyTheme(id, announce){
+    document.documentElement.setAttribute("data-theme", id);
+    try{ localStorage.setItem(THEME_KEY, id); }catch(e){}
+    const t = THEMES.find(t=>t.id===id) || THEMES[0];
+    const label = document.getElementById("themeBtnLabel");
+    if(label) label.textContent = t.label;
+    document.querySelectorAll("#themeMenu button").forEach(b=>{
+      b.classList.toggle("active", b.dataset.id === id);
+    });
+    if(announce){
+      printLine(`<span class="dim">theme set to</span> <span class="accent2">${esc(t.label)}</span>`);
+      sfxTheme();
+    }
+  }
+
+  function currentTheme(){
+    return document.documentElement.getAttribute("data-theme") || "dark-plus";
+  }
+
+  function cycleTheme(){
+    const ids = THEMES.map(t=>t.id);
+    const idx = ids.indexOf(currentTheme());
+    const next = ids[(idx + 1) % ids.length];
+    applyTheme(next, true);
+  }
+
+  function initThemeUI(){
+    const menu = document.getElementById("themeMenu");
+    THEMES.forEach(t=>{
+      const b = document.createElement("button");
+      b.type = "button";
+      b.dataset.id = t.id;
+      b.innerHTML = `<span class="dotc" style="background:${t.swatch}"></span>${esc(t.label)}`;
+      b.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        applyTheme(t.id, true);
+        menu.classList.remove("open");
+      });
+      menu.appendChild(b);
+    });
+
+    const btn = document.getElementById("themeBtn");
+    btn.addEventListener("click", (e)=>{
+      e.stopPropagation();
+      ensureCtx();
+      sfxClick();
+      menu.classList.toggle("open");
+      btn.setAttribute("aria-expanded", menu.classList.contains("open") ? "true":"false");
+    });
+    document.addEventListener("click", ()=>{ menu.classList.remove("open"); });
+
+    let saved = "dark-plus";
+    try{ saved = localStorage.getItem(THEME_KEY) || "dark-plus"; }catch(e){}
+    applyTheme(saved, false);
+  }
+
+  const screen = document.getElementById("screen");
+  const bannerPinned = document.getElementById("bannerPinned");
+  const log = document.getElementById("log");
+  const PROMPT_PATH = "~";
+  let history = [];
+  let histIndex = -1;
+  let inputBuffer = "";
+  let locked = false;
+
+  const ART =
+`   █████╗ ███╗   ███╗███████╗██╗   ██╗ █████╗
+  ██╔══██╗████╗ ████║██╔════╝╚██╗ ██╔╝██╔══██╗
+  ███████║██╔████╔██║█████╗   ╚████╔╝ ███████║
+  ██╔══██║██║╚██╔╝██║██╔══╝    ╚██╔╝  ██╔══██║
+  ██║  ██║██║ ╚═╝ ██║███████╗   ██║   ██║  ██║
+  ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝`;
+
+  function el(tag, cls, html){
+    const e = document.createElement(tag);
+    if(cls) e.className = cls;
+    if(html !== undefined) e.innerHTML = html;
+    return e;
+  }
+
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function linkify(url, text){
+    if(!url) return esc(text || "");
+    return `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(text || url)}</a>`;
+  }
+
+  function scrollBottom(){
+    requestAnimationFrame(()=>{ screen.scrollTop = screen.scrollHeight; });
+  }
+
+  function printRaw(node){
+    log.appendChild(node);
+    scrollBottom();
+  }
+
+  function printLine(html, cls){
+    const d = el("div", "line" + (cls ? " " + cls : ""), html);
+    printRaw(d);
+    return d;
+  }
+
+  function printCommandEcho(cmd){
+    const row = el("div", "line prompt-row");
+    row.innerHTML = `<span class="ps">ameya<span class="path">@portfolio</span>:${PROMPT_PATH}$</span> <span class="cmdtext">${esc(cmd)}</span>`;
+    printRaw(row);
+  }
+
+  function section(title){
+    printLine(`<h2 class="sec">${esc(title)}</h2>`);
+  }
+
+  /* ---------- retro typewriter effect ---------- */
+  function typeInto(targetEl, text, {speed=13, caret=true} = {}){
+    return new Promise(resolve=>{
+      targetEl.textContent = "";
+      let caretEl = null;
+      if(caret){
+        caretEl = document.createElement("span");
+        caretEl.className = "type-caret";
+        targetEl.parentNode.insertBefore(caretEl, targetEl.nextSibling);
+      }
+      let i = 0;
+      function step(){
+        if(i < text.length){
+          targetEl.textContent += text[i];
+          const ch = text[i];
+          if(ch.trim() !== "") sfxType();
+          i++;
+          scrollBottom();
+          setTimeout(step, speed);
+        } else {
+          if(caretEl) caretEl.remove();
+          resolve();
+        }
+      }
+      step();
+    });
+  }
+
+  /* ---------- command implementations ---------- */
+
+  function cmdHelp(){
+    const rows = [
+      ["whoami","who I am, in a few lines"],
+      ["projects","featured things I've built"],
+      ["skills","languages, frameworks, tools"],
+      ["experience","where I've worked"],
+      ["education","academic background"],
+      ["achievements","a few highlights"],
+      ["contact","how to reach me"],
+      ["theme","cycle color theme (or e.g. `theme dracula`)"],
+      ["resume","open/download my resume"],
+      ["socials","links to github / linkedin"],
+      ["clear","clear the screen (banner stays pinned)"],
+      ["help","show this list again"]
+    ];
+    const out = el("div","out");
+    out.appendChild(el("div", null, `<span class="dim">available commands — type one and press enter, or tap a suggestion below</span>`));
+    rows.forEach(([c,d])=>{
+      out.appendChild(el("div","help-row",
+        `<span class="c">${c}</span><span class="dim">${esc(d)}</span>`));
+    });
+    printRaw(out);
+    printSuggestions(rows.map(r=>r[0]));
+  }
+
+  function printSuggestions(cmds){
+    const wrap = el("div","out");
+    wrap.style.marginTop = "4px";
+    cmds.forEach(c=>{
+      const b = el("span", null, c);
+      b.style.cssText = "display:inline-block;border:1px solid var(--border);color:var(--accent-2);padding:2px 8px;border-radius:4px;margin:3px 6px 3px 0;cursor:pointer;font-size:12.5px;";
+      b.addEventListener("click", ()=>{ ensureCtx(); sfxSelect(); runCommand(c); });
+      wrap.appendChild(b);
+    });
+    printRaw(wrap);
+  }
+
+  /* animated replay of the banner, printed into the scrolling log (on-demand via `banner` command) */
+  async function cmdBanner(){
+    const wrap = el("div", null, `<span class="accent banner-art"></span>`);
+    printRaw(wrap);
+    const artSpan = wrap.querySelector(".banner-art");
+    await typeInto(artSpan, ART, {speed:6});
+    printLine(`<span class="dim">${esc(DATA.role)} @ ${esc(DATA.company)} — ${esc(DATA.tagline)}</span>`);
+    printLine(`<span class="dim">type </span><span class="accent2">help</span><span class="dim"> to see available commands</span>`);
+  }
+
+  /* pinned banner shown once at load/reload — stays fixed even after `clear` */
+  async function renderPinnedBanner(){
+    bannerPinned.innerHTML =
+      `<div class="line"><span class="accent banner-art" id="pinnedArt"></span></div>` +
+      `<div class="line dim" id="pinnedTag" style="opacity:0;transition:opacity .3s ease;">${esc(DATA.role)} @ ${esc(DATA.company)} — ${esc(DATA.tagline)}</div>`;
+    const artSpan = document.getElementById("pinnedArt");
+    await typeInto(artSpan, ART, {speed:6});
+    const tag = document.getElementById("pinnedTag");
+    if(tag) tag.style.opacity = "1";
+  }
+
+
+  function cmdWhoami(){
+    section("whoami");
+    const out = el("div","out", DATA.whoami.map(esc).join("<br>"));
+    printRaw(out);
+  }
+
+  function cmdProjects(){
+    section("projects");
+    DATA.projects.forEach(p=>{
+      const wrap = el("div","proj");
+      wrap.innerHTML =
+        `<div class="name">${esc(p.name)}</div>` +
+        `<div>${esc(p.desc)}</div>` +
+        `<div class="dim" style="margin-top:4px;">stack: <span class="accent2">${p.stack.map(esc).join(", ")}</span></div>` +
+        (p.notes ? `<div class="dim">${esc(p.notes)}</div>` : "") +
+        (p.links && p.links.length ? `<div class="links">${p.links.map(l=>`[ ${linkify(l.url,l.label)} ]`).join(" ")}</div>` : "");
+      printRaw(wrap);
+    });
+  }
+
+  function cmdSkills(){
+    section("skills");
+    const table = el("table","skills");
+    Object.entries(DATA.skills).forEach(([cat,list])=>{
+      const tr = el("tr");
+      tr.innerHTML = `<td class="k">${esc(cat)}</td><td>${list.map(esc).join(", ")}</td>`;
+      table.appendChild(tr);
+    });
+    printRaw(table);
+  }
+
+  function cmdExperience(){
+    section("experience");
+    DATA.experience.forEach(e=>{
+      const wrap = el("div","proj");
+      wrap.innerHTML =
+        `<div class="name">${esc(e.role)} <span class="dim">— ${esc(e.org)}</span>${e.period ? ` <span class="badge">${esc(e.period)}</span>`:""}</div>` +
+        (e.detail ? `<div>${esc(e.detail)}</div>` : "");
+      printRaw(wrap);
+    });
+  }
+
+  function cmdEducation(){
+    section("education");
+    DATA.education.forEach(ed=>{
+      printLine(`<span class="accent2">${esc(ed.degree)}</span> <span class="dim">— ${esc(ed.school)}</span>${ed.period ? ` <span class="badge">${esc(ed.period)}</span>` : ""}`);
+    });
+  }
+
+  function cmdAchievements(){
+    section("achievements");
+    const out = el("div","out");
+    DATA.achievements.forEach(a=>{
+      out.appendChild(el("div", null, `<span class="accent">›</span> ${esc(a)}`));
+    });
+    printRaw(out);
+  }
+
+  function cmdContact(){
+    section("contact");
+    const kv = el("div","kv");
+    kv.innerHTML =
+      `<div class="k">email</div><div>${linkify("mailto:"+DATA.email, DATA.email)}</div>` +
+      `<div class="k">github</div><div>${linkify(DATA.github)}</div>` +
+      `<div class="k">linkedin</div><div>${linkify(DATA.linkedin)}</div>` +
+      (DATA.twitter ? `<div class="k">twitter</div><div>${linkify(DATA.twitter)}</div>` : "") +
+      `<div class="k">location</div><div class="dim">${esc(DATA.location)}</div>`;
+    printRaw(kv);
+    printLine(`<span class="dim">— always happy to talk shop about clean architecture or RAG pipelines.</span>`);
+  }
+
+  function cmdSocials(){
+    section("socials");
+    printLine(`[ ${linkify(DATA.github,"github")} ] [ ${linkify(DATA.linkedin,"linkedin")} ]${DATA.twitter?` [ ${linkify(DATA.twitter,"twitter")} ]`:""}`);
+  }
+
+  function cmdResume(){
+    if(DATA.resumeUrl){
+      window.open(DATA.resumeUrl, "_blank");
+      printLine(`<span class="dim">opening resume in a new tab…</span>`);
+    } else {
+      printLine(`<span class="err">no resume URL configured yet — set DATA.resumeUrl in the source to enable this.</span>`);
+    }
+  }
+
+  const COMMANDS = {
+    help: cmdHelp,
+    whoami: cmdWhoami,
+    projects: cmdProjects,
+    skills: cmdSkills,
+    experience: cmdExperience,
+    education: cmdEducation,
+    achievements: cmdAchievements,
+    contact: cmdContact,
+    socials: cmdSocials,
+    resume: cmdResume,
+    banner: cmdBanner,
+    clear: ()=>{ log.innerHTML = ""; },
+    ls: cmdHelp,
+    about: cmdWhoami,
+    home: cmdBanner,
+    theme: cmdTheme
+  };
+
+  function cmdTheme(arg){
+    const ids = THEMES.map(t=>t.id);
+    const wanted = (arg || "").trim().toLowerCase();
+    if(!wanted){
+      cycleTheme();
+      return;
+    }
+    const match = THEMES.find(t=> t.id === wanted || t.label.toLowerCase().replace(/[^a-z0-9]+/g,"-").includes(wanted));
+    if(match){
+      applyTheme(match.id, true);
+    } else {
+      printLine(`<span class="err">unknown theme: ${esc(wanted)}</span>`);
+      printLine(`<span class="dim">available:</span> ${ids.map(esc).join(", ")}`);
+    }
+  }
+
+  function runCommand(raw){
+    const cmd = raw.trim();
+    if(cmd === "") return;
+    printCommandEcho(cmd);
+    history.push(cmd);
+    histIndex = history.length;
+    const parts = cmd.split(/\s+/);
+    const base = parts[0].toLowerCase();
+    const arg = parts.slice(1).join(" ");
+    const fn = COMMANDS[base];
+    if(fn){
+      fn(arg);
+    } else {
+      sfxError();
+      printLine(`<span class="err">command not found: ${esc(cmd)}</span> <span class="dim">— type</span> <span class="accent2">help</span> <span class="dim">for a list</span>`);
+    }
+    renderPrompt();
+  }
+
+  /* ---------- live input line ---------- */
+  let activePromptRow = null;
+  let activeTyped = null;
+
+  function renderPrompt(){
+    inputBuffer = "";
+    activePromptRow = el("div","line prompt-row","");
+    activePromptRow.innerHTML = `<span class="ps">ameya<span class="path">@portfolio</span>:${PROMPT_PATH}$</span> <span id="inputRow"><span id="typed"></span><span class="cursor"></span></span>`;
+    printRaw(activePromptRow);
+    activeTyped = activePromptRow.querySelector("#typed");
+    scrollBottom();
+  }
+
+  function updateTyped(){
+    if(activeTyped) activeTyped.textContent = inputBuffer;
+  }
+
+  const hidden = document.createElement("input");
+  hidden.id = "hiddenInput";
+  hidden.autocomplete = "off";
+  hidden.autocapitalize = "off";
+  hidden.spellcheck = false;
+  document.body.appendChild(hidden);
+
+  function focusInput(){ hidden.focus({preventScroll:true}); }
+  screen.addEventListener("click", focusInput);
+  window.addEventListener("load", focusInput);
+
+  hidden.addEventListener("input", ()=>{
+    inputBuffer = hidden.value;
+    updateTyped();
+  });
+
+  hidden.addEventListener("keydown", (e)=>{
+    ensureCtx();
+    if(e.key === "Enter"){
+      e.preventDefault();
+      sfxEnter();
+      const val = hidden.value;
+      hidden.value = "";
+      if(activePromptRow) activePromptRow.remove();
+      inputBuffer = "";
+      runCommand(val);
+    } else if(e.key === "Backspace"){
+      sfxBackspace();
+    } else if(e.key === "ArrowUp"){
+      e.preventDefault();
+      sfxSelect();
+      if(history.length){
+        histIndex = Math.max(0, histIndex - 1);
+        hidden.value = history[histIndex] || "";
+        inputBuffer = hidden.value;
+        updateTyped();
+      }
+    } else if(e.key === "ArrowDown"){
+      e.preventDefault();
+      sfxSelect();
+      histIndex = Math.min(history.length, histIndex + 1);
+      hidden.value = history[histIndex] || "";
+      inputBuffer = hidden.value;
+      updateTyped();
+    } else if(e.key === "Tab"){
+      e.preventDefault();
+      const partial = hidden.value.toLowerCase();
+      const match = Object.keys(COMMANDS).find(c=>c.startsWith(partial) && partial.length>0);
+      if(match){ sfxSelect(); hidden.value = match; inputBuffer = match; updateTyped(); }
+    } else if(e.key.length === 1){
+      sfxKey();
+    }
+  });
+
+  /* ---------- boot sequence ---------- */
+  function boot(){
+    sfxBoot();
+    const lines = [
+      "booting portfolio.sh …",
+      `loading profile: ${DATA.name} <${DATA.role} @ ${DATA.company}>`,
+      "type `help` for a list of commands, or tap a suggestion after running it"
+    ];
+    let i = 0;
+    function step(){
+      if(i < lines.length){
+        printLine(`<span class="boot">${esc(lines[i])}</span>`);
+        i++;
+        setTimeout(step, 160);
+      } else {
+        renderPinnedBanner().then(()=>{
+          renderPrompt();
+          focusInput();
+        });
+      }
+    }
+    step();
+  }
+
+  initThemeUI();
+  initSoundUI();
+
+  /* ---------- retro "press start" gate — guarantees the boot sound is unblocked ---------- */
+  const startOverlay = document.getElementById("startOverlay");
+  let started = false;
+  function startExperience(){
+    if(started) return;
+    started = true;
+    ensureCtx();
+    sfxSelect();
+    startOverlay.classList.add("hidden");
+    boot();
+  }
+  startOverlay.addEventListener("click", startExperience);
+  window.addEventListener("keydown", function onFirstKey(e){
+    startExperience();
+    window.removeEventListener("keydown", onFirstKey);
+  });
+  // safety net: if audio was already unlocked earlier (e.g. re-entering via bfcache), auto-start after a short beat
+  setTimeout(()=>{
+    if(!started){
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if(AC){
+        const probe = new AC();
+        if(probe.state === "running"){ startExperience(); }
+        probe.close();
+      }
+    }
+  }, 50);
+})();
+</script>
+</body>
+</html>

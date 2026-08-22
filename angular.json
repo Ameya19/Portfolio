@@ -30,6 +30,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "index.html",
+                "input": "src/app/core/templates/terminal",
+                "output": "/terminal-view"
               }
             ],
             "styles": [

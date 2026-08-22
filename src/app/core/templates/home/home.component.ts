@@ -6,24 +6,23 @@ import {
   ElementRef
 } from '@angular/core';
 import { TitlebarComponent } from "../../../shared/components/titlebar/titlebar.component";
-import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from "../about/about.component";
 import { ExperienceComponent } from '../experience/experience.component';
 import { EducationComponent } from '../education/education.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { ContactComponent } from '../contact/contact.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   imports: [
     TitlebarComponent,
-    MatButtonModule,
     AboutComponent,
     ExperienceComponent,
     EducationComponent,
     ProjectsComponent,
-    ContactComponent
+    ContactComponent,
+    RouterLink,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -134,6 +133,10 @@ export class HomeComponent implements AfterViewInit {
   }
 
   onContactClick() {
+    const target = document.getElementById('contact');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     this.router.navigate([], { fragment: 'contact' });
   }
 }

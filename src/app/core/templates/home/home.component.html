@@ -1,46 +1,51 @@
 <app-titlebar></app-titlebar>
-<div class="home-container" #HomeSection>
-    <div class="home-content">
-        <div class="left-section">
-            <h3 class="intro">Hello world.</h3>
-            <h2 class="heading">I am <span style="color: #2dd4bf;">Ameya</span>.</h2>
-            <p class="description">Code. Design. Deploy. Repeat.</p>
-            <div class="designation">
-                <h1>
-                    <a href="" class="typewrite" data-period="2000" data-type='["Full-Stack Developer","Backend Developer","Software Developer"]'>
-                        <span class="wrap" #textSpan></span>
-                    </a>
-                </h1>
-            </div>
-            <div class="resume-contact">
-                <button mat-button extended (click) = "downloadResume()" class="download-resume">Download Resume</button>
-                <button mat-stroked-button extended class="contact-me" (click) ="onContactClick()">
-                    Contact
-                </button>
-            </div>
-        </div>
-        <div class="right-section">
-            <img src="/assets/images/photo.jpeg" alt="Profile Picture" class="profile-picture">
-        </div>
+
+<div class="hero" id="home" #HomeSection>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Ameya Bhingarkar</h1>
+      <p class="hero-role">
+        <a href="" class="typewrite" data-period="2000" data-type='["Full-Stack Developer","Backend Developer","Software Developer"]'>
+          <span class="wrap" #textSpan></span>
+        </a>
+      </p>
+      <p class="hero-tagline">Code. Design. Deploy. Repeat.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" (click)="downloadResume()">Download Resume</button>
+        <button class="btn btn-outline" (click)="onContactClick()">Contact</button>
+      </div>
     </div>
+    <div class="hero-image">
+      <img src="/assets/images/photo.jpeg" alt="Ameya Bhingarkar" class="profile-picture">
+    </div>
+  </div>
 </div>
 
 <section id="skills" class="animate-section" #skillsSection>
-<app-about></app-about>
+  <app-about></app-about>
 </section>
 
 <section id="experience" class="animate-section" #experienceSection>
-<app-experience></app-experience>
+  <app-experience></app-experience>
 </section>
 
 <section id="education" class="animate-section" #educationSection>
-<app-education></app-education>
+  <app-education></app-education>
 </section>
 
 <section id="projects" class="animate-section" #projectsSection>
-<app-projects></app-projects>
+  <app-projects></app-projects>
 </section>
 
 <section id="contact">
-<app-contact></app-contact>
+  <app-contact></app-contact>
 </section>
+
+<a class="terminal-fab" routerLink="/terminal" aria-label="Open terminal">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="4 17 10 11 4 5"/>
+    <line x1="12" y1="19" x2="20" y2="19"/>
+  </svg>
+  <span>Terminal</span>
+</a>
