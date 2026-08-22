@@ -125,7 +125,7 @@ export class HomeComponent implements AfterViewInit {
 
   downloadResume() {
     const link = document.createElement('a');
-    link.href = '/assets/Ameya_Bhingarkar_Resume.pdf';
+    link.href = 'https://drive.google.com/file/d/1qd8woEKXwWTj1Z4NeB8obXqzDG6tPzw2/view?usp=sharing';
     link.download = 'Ameya_Bhingarkar_Resume.pdf';
     document.body.appendChild(link);
     link.click();
