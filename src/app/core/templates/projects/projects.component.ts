@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
-  onExpenseSplitterClick(event: Event): void {
+  onPokemonAppClick(event: Event): void {
     event.preventDefault();
-    window.open('https://pokedex-pearl-ten.vercel.app/', 'Pokedex');
+    window.open('https://pokedex-interactive.vercel.app/', 'Modernized Pokedex');
   }
 }
