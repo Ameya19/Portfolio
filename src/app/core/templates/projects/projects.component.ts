@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
 export class ProjectsComponent {
   onPokemonAppClick(event: Event): void {
     event.preventDefault();
-    window.open('https://modern-pokedex-psi.vercel.app/', 'Modernized Pokedex');
+    window.open('https://modern-pokedex-psi.vercel.app/', 'Pokedex');
   }
 }
